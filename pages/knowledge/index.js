@@ -6,8 +6,10 @@ import { H1, H4, P } from '~/components/text'
 import { AvatarGroup } from '~/components/avatar'
 import Link from '~/components/text/link'
 import Button from '~/components/buttons'
-import guides from '~/lib/data/guides.json'
+import knowledge from '~/lib/data/knowledge.json'
 import { PRODUCT_NAME } from '~/lib/constants'
+
+console.log('KN', knowledge)
 
 const Knowledge = () => (
   <>
@@ -42,20 +44,20 @@ const Knowledge = () => (
 
       <Wrapper>
         <div className="knowledge-list">
-          {guides.map((guide, i) => (
-            <Link href={guide.url} key={`${guide.title}.${i}`}>
+          {knowledge.map((k, i) => (
+            <Link href={k.url} key={`${k.title}.${i}`}>
               <article className="guide">
                 <div className="titles">
-                  <H4>{guide.title}</H4>
-                  <P>{guide.description}</P>
+                  <H4>{k.title}</H4>
+                  <P>{k.description}</P>
                 </div>
                 <div className="meta">
                   <span className="date">
-                    Added on {formatDate(guide.published, 'MMMM Do YYYY')}
+                    Added on {formatDate(k.published, 'MMMM Do YYYY')}
                   </span>
                   <AvatarGroup
                     size={24}
-                    members={guide.authors.map(author => {
+                    members={k.authors.map(author => {
                       return { username: author }
                     })}
                   />
@@ -67,7 +69,7 @@ const Knowledge = () => (
           <Link href="https://github.com/zeit/docs/blob/master/CONTRIBUTING.md#guides">
             <article className="guide contribute">
               <div className="titles">
-                <H4>Write Your Guide →</H4>
+                <H4>Write Your Article →</H4>
                 <P>
                   Write about using {PRODUCT_NAME} in combination with a
                   technology of your choosing and get featured!
