@@ -1,6 +1,6 @@
 [
   {
-    "title": "How do I debug a 502 error from a Vercel Serverless Function??",
+    "title": "How do I debug a 502 error from a Vercel Serverless Function?",
     "description": "Information on how to debug a 502 error from a Vercel Serverless Function.",
     "authors": ["mcsdev"],
     "editUrl": "pages/docs/knowledge/how-to-debug-a-502-error.mdx",
@@ -14,6 +14,15 @@
     "authors": ["mcsdev"],
     "editUrl": "pages/docs/knowledge/using-private-dependencies-with-vercel.mdx",
     "url": "/knowledge/using-private-dependencies-with-vercel",
+    "published": "2020-05-13T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
+    "title": "How long will I wait before receiving a response form Vercel Support?",
+    "description": "Information on how long it might take Vercel Support to respond to your request, and how you can decrease this.",
+    "authors": ["mcsdev"],
+    "editUrl": "pages/docs/knowledge/vercel-support-queue-time.mdx",
+    "url": "/knowledge/vercel-support-queue-time",
     "published": "2020-05-13T18:54:36.000Z",
     "lastEdited": "2020-05-13T18:54:36.000Z"
   },
