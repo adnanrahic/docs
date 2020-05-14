@@ -7,6 +7,7 @@ import Link from '~/components/text/link'
 import Button from '~/components/buttons'
 import knowledge from '~/lib/data/knowledge.json'
 import { PRODUCT_NAME } from '~/lib/constants'
+import Footer from '~/components/footer'
 
 const Knowledge = () => (
   <>
@@ -59,6 +60,8 @@ const Knowledge = () => (
         </div>
       </Wrapper>
     </div>
+
+    <Footer />
 
     <style jsx>{`
       .titles {

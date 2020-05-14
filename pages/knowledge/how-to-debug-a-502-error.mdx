@@ -1,4 +1,4 @@
-import Standard from '~/components/layout/standard'
+import Layout from '~/components/layout/knowledge'
 import Note from '~/components/text/note'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
@@ -33,7 +33,7 @@ If your deployment is not being statically generated at build time, you can chan
 
 Deploying a static site will provide you with a more reliable, available, and performant deployment as your user will be served content immediately, without waiting for page data to arrive and being served errors when content either takes too long or is sent in an incorrect format.
 
-export default ({ children }) => <Standard meta={meta}>{children}</Standard>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
 
 export const config = {
   amp: 'hybrid'
