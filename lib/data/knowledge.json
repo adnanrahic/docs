@@ -1,5 +1,14 @@
 [
   {
+    "title": "How do I use private dependencies with Vercel?",
+    "description": "Information on how to use private dependencies with a Vercel deployment.",
+    "authors": ["mcsdev"],
+    "editUrl": "pages/docs/knowledge/using-private-dependencies-with-vercel.mdx",
+    "url": "/knowledge/using-private-dependencies-with-vercel",
+    "published": "2020-05-13T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
     "title": "Where can I find my logs on Vercel?",
     "description": "Information on where to find Vercel logs and how they work.",
     "authors": ["mcsdev"],
