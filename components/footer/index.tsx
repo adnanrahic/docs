@@ -96,16 +96,24 @@ const Footer = ({ light }: FooterProps) => {
         <ul className={styles.navigation}>
           <li className={styles['links-title']}>Education</li>
           <li>
-            <a href="/docs">Documentation</a>
+            <Link href="/docs">
+              <a>Documentation</a>
+            </Link>
           </li>
           <li>
-            <a href="/knowledge">Knowledge</a>
+            <Link href="/knowledge">
+              <a>Knowledge</a>
+            </Link>
           </li>
           <li>
-            <a href="/guides">Guides</a>
+            <Link href="/guides">
+              <a>Guides</a>
+            </Link>
           </li>
           <li>
-            <a href="/api">API Reference</a>
+            <Link href="/api">
+              <a>API Reference</a>
+            </Link>
           </li>
           <li>
             <a href="/examples">Examples</a>
