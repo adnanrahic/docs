@@ -57,7 +57,7 @@ class withStandard extends React.Component {
           )}
         </Head>
 
-        <div style={{ marginTop: 20 }} />
+        <div style={{ marginTop: 36 }} />
 
         <Wrapper width="1000">
           <SubHeader title="Knowledge">
