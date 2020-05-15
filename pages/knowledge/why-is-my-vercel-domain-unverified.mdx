@@ -1,4 +1,4 @@
-import Standard from '~/components/layout/standard'
+import Layout from '~/components/layout/knowledge'
 import { InlineCode } from '~/components/text/code'
 import Caption from '~/components/text/caption'
 import Snippet from '~/components/snippet'
@@ -51,7 +51,7 @@ You can also use the terminal to check the CNAME record for your domain accordin
 <Snippet dark text="dig @a.zeit-world.com +short CNAME www.vercel.com" />
 <Caption>Querying Vercel DNS for the <InlineCode>www.vercel.com</InlineCode> CNAME record value.</Caption>
 
-export default ({ children }) => <Standard meta={meta}>{children}</Standard>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
 
 export const config = {
   amp: 'hybrid'

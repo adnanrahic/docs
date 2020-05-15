@@ -1,4 +1,4 @@
-import Standard from '~/components/layout/standard'
+import Layout from '~/components/layout/knowledge'
 import { Image } from '~/components/media'
 import Caption from '~/components/text/caption'
 
@@ -38,7 +38,7 @@ Function logs provide logging output for your [Serverless Functions](/docs/v2/se
 
 Function logs are not stored and will be lost as soon as the functions logs page is navigated away from.
 
-export default ({ children }) => <Standard meta={meta}>{children}</Standard>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
 
 export const config = {
   amp: 'hybrid'

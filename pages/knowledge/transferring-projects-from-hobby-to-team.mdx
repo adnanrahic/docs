@@ -1,4 +1,4 @@
-import Standard from '~/components/layout/standard'
+import Layout from '~/components/layout/knowledge'
 
 export const meta = {
   title:
@@ -37,7 +37,7 @@ If your project was using a [custom domain](/docs/v2/custom-domains), remove thi
 
 Once the domain has been transferred to the team account, add it to the project. Vercel will issue a new certificate for the domain and the team project will be available at the domain immediately.
 
-export default ({ children }) => <Standard meta={meta}>{children}</Standard>
+export default ({ children }) => <Layout meta={meta}>{children}</Layout>
 
 export const config = {
   amp: 'hybrid'
