@@ -99,6 +99,9 @@ const Footer = ({ light }: FooterProps) => {
             <a href="/docs">Documentation</a>
           </li>
           <li>
+            <a href="/knowledge">Knowledge</a>
+          </li>
+          <li>
             <a href="/guides">Guides</a>
           </li>
           <li>
