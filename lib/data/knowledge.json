@@ -48,6 +48,14 @@
     "lastEdited": "2020-05-13T18:54:36.000Z"
   },
   {
+    "title": "How do I point a subdomain to a service outside of Vercel?",
+    "description": "Information on how to make a subdomain available to a external service for a domain managed by Vercel.",
+    "editUrl": "pages/docs/knowledge/pointing-subdomains-to-external-services.mdx",
+    "url": "/knowledge/pointing-subdomains-to-external-services",
+    "published": "2020-05-13T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
     "title": "How do I transfer my Vercel project from a personal account to a team?",
     "description": "Information on how to transfer a Vercel project from a hobby account to a team.",
     "editUrl": "pages/docs/knowledge/transferring-projects-from-hobby-to-team.mdx",
