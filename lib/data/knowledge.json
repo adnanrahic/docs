@@ -56,6 +56,14 @@
     "lastEdited": "2020-05-13T18:54:36.000Z"
   },
   {
+    "title": "Why am I unable to signup to the Vercel platform?",
+    "description": "Information on what to do if you are experiencing issues signing up to the Vercel platform.",
+    "editUrl": "pages/docs/knowledge/why-can-i-not-signup.mdx",
+    "url": "/knowledge/why-can-i-not-signup",
+    "published": "2020-05-13T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
     "title": "Why is my Vercel domain not verified?",
     "description": "Information on why a Vercel domain may not be verified and how to verify it.",
     "editUrl": "pages/docs/knowledge/why-is-my-vercel-domain-unverified.mdx",
