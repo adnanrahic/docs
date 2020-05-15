@@ -118,20 +118,6 @@ const Knowledge = () => (
         border-bottom: 1px solid #eaeaea;
       }
 
-      .knowledge-list > :global(*:nth-last-child(2)) .guide {
-        border-color: transparent;
-      }
-
-      .knowledge-list > :global(*:nth-last-child(2)) .guide:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        height: 1px;
-        background-image: linear-gradient(to right, transparent 50%, #ddd 50%);
-        background-size: 8px 100%;
-      }
-
       .knowledge-list :global(a):hover {
         text-decoration: none;
       }
