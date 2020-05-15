@@ -1,5 +1,13 @@
 [
   {
+    "title": "How do I create a minimal reproducible example for Vercel Support?",
+    "description": "Information on how to create a minimal reproducible example for Vercel Support.",
+    "editUrl": "pages/docs/knowledge/creating-a-minimal-reproducible-example.mdx",
+    "url": "/knowledge/creating-a-minimal-reproducible-example",
+    "published": "2020-05-13T18:54:36.000Z",
+    "lastEdited": "2020-05-13T18:54:36.000Z"
+  },
+  {
     "title": "How long will it take for my Vercel DNS records to update?",
     "description": "Information on the length of time it may take for Vercel DNS changes to take place.",
     "editUrl": "pages/docs/knowledge/how-long-to-update-dns-records.mdx",
