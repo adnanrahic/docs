@@ -29,7 +29,7 @@ const Knowledge = () => (
           <div className="actions">
             <span className="caption">Sorted by Newest</span>
             <Link
-              href="https://github.com/zeit/docs/issues/new?labels=Section%3A+Guides&template=guide-report-or-request.md"
+              href="https://github.com/zeit/docs/issues/new?labels=Section%3A+Knowledge.md"
               underlineOnHover={false}
             >
               <Button type="secondary" small>
