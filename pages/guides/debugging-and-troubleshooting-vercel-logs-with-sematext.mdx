@@ -17,7 +17,7 @@ export const meta = {
   image: `https://og-image.now.sh/**Track%20website%20performance**%20with%20DebugBear%20and%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fdebugging-and-troubleshooting-vercel-logs-with-sematext%2Fdebubear-logo.png`,
   editUrl:
     'pages/guides/debugging-and-troubleshooting-vercel-logs-with-sematext.mdx',
-  lastEdited: '2020-05-17T19:58:41.000Z'
+  lastEdited: '2020-05-18T12:45:57.000Z'
 }
 
 [Sematext](https://sematext.com/) is a full-stack observability tool that helps developers keep track of logs, metrics, infrastructure, and website performance.
@@ -32,19 +32,32 @@ This guide walks you through setting up a [log drain](/blog/log-drains) for your
 
 With your project set up with <OrgName />, install the [Sematext Logs integration](/integrations/sematext-logs) from the [<OrgName /> Integrations Marketplace](/integrations) to add it to your account.
 
+<Image
+  src={`${
+    process.env.ASSETS
+  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/step-2-sematext-log-drain.png`}
+  width={741 / 1.2}
+  height={261 / 1.2}
+  oversize
+  shadow
+/>
+<Caption>
+  Add the Sematext Logs integration.
+</Caption>
+
 Select the account or team your deployed project belongs to. You will then be redirected to Sematext Logs.
 
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/install-zeit-integration.png`}
-  width={1608 / 2}
-  height={648 / 2}
+  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/step-2-add-sematext-log-drain.png`}
+  width={740 / 1.2}
+  height={689 / 1.2}
   oversize
+  shadow
 />
-
 <Caption>
-  Add the Sematext Logs integration and grant it access to the account that your
+  Grant the Sematext Logs integration access to the account that your
   project belongs to.
 </Caption>
 
@@ -55,10 +68,11 @@ If you do not have a Sematext account already, click **Start Free Trial** on Sem
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/sematext-signup.png`}
-  width={1456 / 2}
-  height={504 / 2}
+  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/step-3-sign-up-to-sematext.gif`}
+  width={800 / 1.2}
+  height={450 / 1.2}
   oversize
+  shadow
 />
 <Caption>Set up a Sematext Account.</Caption>
 
@@ -69,9 +83,9 @@ When logged in to Sematext, select **Start Shipping Logs**. This will set up a L
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/create-logs-app.png`}
-  width={1067 / 2}
-  height={727 / 2}
+  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/step-4-start-shipping-logs.png`}
+  width={1280 / 2}
+  height={832 / 2}
   oversize
   shadow
 />
@@ -97,9 +111,9 @@ Open your [Sematext Logs integration](/integrations/sematext-logs), select the r
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/logs-reports.png`}
-  width={1067 / 2}
-  height={727 / 2}
+  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/step-5-create-log-drain.png`}
+  width={1249 / 2}
+  height={1372 / 2}
   oversize
   shadow
 />
@@ -120,33 +134,20 @@ By default, you get a set of reports out of the box, with default alert rules to
 />
 <Caption>Sematext Logs reports showing logs data.</Caption>
 
-## Forwarding <NameWrapper name={ORG_NAME} /> Logs to Multiple Sematext Logs Apps
+## Step 6: Forwarding <NameWrapper name={ORG_NAME} /> Logs to Multiple Sematext Logs Apps (Optional)
 
 When configuring the Sematext Logs <NameWrapper name={ORG_NAME} /> Integration you can configure whether to collect logs from all projects or just a few. With this integration you can configure multiple log drains that point to multiple destinations. This means you can specify which project will send logs to which Sematext Logs App.
 
 To configure multiple log drains, create multiple Logs Apps in Sematext and multiple Log Drains in the Sematext Logs <NameWrapper name={ORG_NAME} /> Integration.
-
-Click on **Create Drain** to get started. This will open up the UI to add additional Log Drains.
-
-<Image
-  src={`${
-    process.env.ASSETS
-  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/multiple-log-drains.png`}
-  width={1244 / 2}
-  height={648 / 2}
-  oversize
-  shadow
-/>
-<Caption>Add More Log Drains for <OrgName /> projects.</Caption>
 
 Once added, you'll see an overview of all the Log Drains you have configured.
 
 <Image
   src={`${
     process.env.ASSETS
-  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/multiple-log-drains.png`}
-  width={1244 / 2}
-  height={648 / 2}
+  }/guides/debugging-and-troubleshooting-vercel-logs-with-sematext/step-6-multiple-log-drains.png`}
+  width={1249 / 2}
+  height={746 / 2}
   oversize
   shadow
 />
