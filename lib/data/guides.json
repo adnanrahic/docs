@@ -15,13 +15,13 @@
     "published": "2020-04-30T07:47:12.000Z",
     "authors": ["stefanoverna"],
     "url": "/guides/deploying-next-datocms-with-vercel",
-    "example": "https://github.com/zeit/next.js/tree/canary/examples/cms-datocms",
+    "example": "https://github.com/vercel/next.js/tree/canary/examples/cms-datocms",
     "image": "https://og-image.now.sh/**Create%20and%20Deploy%20a%20Blog**%20with%20Next.js%20and%20DatoCMS.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&images=https%3A%2F%2Fwww.datocms.com%2Fimages%2Fbrand-assets%2Fsvg%2Ficon-text%2Fcolor%2Fcolor_full_logo.svg",
     "editUrl": "pages/guides/deploying-next-datocms-with-vercel.mdx",
     "name": "Next.js + DatoCMS",
     "type": "site",
     "demo": "https://next-blog-datocms.now.sh/",
-    "lastEdited": "2020-05-09T14:31:59.000Z"
+    "lastEdited": "2020-06-04T20:10:32.000Z"
   },
   {
     "title": "Deploy Ionic Angular with Vercel",
@@ -68,7 +68,7 @@
     "type": "site",
     "demo": "https://next-blog-takeshape.now.sh/",
     "editUrl": "pages/guides/deploying-takeshape-with-vercel.mdx",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
+    "lastEdited": "2020-06-04T20:10:32.000Z"
   },
   {
     "title": "Error Reports for Your Projects with URIports and Vercel",
@@ -78,7 +78,7 @@
     "image": "https://og-image.now.sh/**Error%20Reports**%20for%20Your%20Projects%20with%20URIports%20and%20Vercel.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fclient-side-error-reports-with-uriports-vercel%2Flogo.svg",
     "url": "/guides/client-side-error-reports-with-uriports-vercel",
     "editUrl": "pages/guides/client-side-error-reports-with-uriports-vercel.mdx",
-    "lastEdited": "2020-05-09T14:31:59.000Z"
+    "lastEdited": "2020-05-27T11:30:01.000Z"
   },
   {
     "title": "Monitor Performance with Calibre and Vercel",
@@ -139,7 +139,7 @@
     "type": "project",
     "image": "https://og-image.now.sh/**Deploy%20a%20FaunaDB-Powered%20Next.js%20app**%20%3Cbr%2F%3E%20with%20Vercel.png?theme=light&md=1&fontSize=70px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fseeklogo.com%2Fimages%2FN%2Fnext-js-logo-7929BCD36F-seeklogo.com.png&images=https%3A%2F%2Fres-3.cloudinary.com%2Fcrunchbase-production%2Fimage%2Fupload%2Fc_lpad%2Ch_256%2Cw_256%2Cf_auto%2Cq_auto%3Aeco%2Fywnzi0pt0uw9klatmadc",
     "editUrl": "pages/guides/deploying-a-faunadb-powered-guestbook-with-vercel.mdx",
-    "lastEdited": "2020-05-05T11:51:28.000Z"
+    "lastEdited": "2020-06-04T20:10:32.000Z"
   },
   {
     "title": "Create and Deploy a Crystallize E-commerce Site with Vercel",
@@ -374,7 +374,7 @@
     "url": "/guides/deploying-pusher-channels-with-vercel",
     "image": "https://og-image.now.sh/**Deploy%20Pusher%20Channels%20Apps**%20with%20Vercel.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpusher-icon.now-examples.now.sh&widths=250&widths=300&heights=250&heights=250",
     "editUrl": "pages/guides/deploying-pusher-channels-with-vercel.mdx",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
+    "lastEdited": "2020-06-04T20:10:32.000Z"
   },
   {
     "title": "Deploy Gridsome Sites with Vercel",
@@ -450,7 +450,7 @@
     "authors": ["mcsdev", "timothy", "skllcrn"],
     "url": "/guides/upgrade-to-zero-configuration",
     "editUrl": "pages/guides/upgrade-to-zero-configuration.mdx",
-    "lastEdited": "2020-05-09T14:31:59.000Z"
+    "lastEdited": "2020-06-04T20:10:32.000Z"
   },
   {
     "title": "Migrate to Vercel",
@@ -492,7 +492,7 @@
     "url": "/guides/deploying-next-and-storyblok-with-vercel",
     "image": "https://vercel.com/docs/static/guides/deploying-next-storyblok-with-vercel/deploying-next-storyblok-with-vercel.png",
     "editUrl": "pages/guides/deploying-next-and-storyblok-with-vercel.mdx",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
+    "lastEdited": "2020-06-02T23:37:58.000Z"
   },
   {
     "title": "Create a Next.js and ButterCMS App That Builds and Deploys with Vercel",
@@ -504,7 +504,7 @@
     "editUrl": "pages/guides/deploying-next-and-buttercms-with-vercel.mdx",
     "name": "Next.js + ButterCMS",
     "type": "app",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
+    "lastEdited": "2020-06-02T23:37:58.000Z"
   },
   {
     "title": "Create a Next.js App with Contentful and Deploy It with Vercel",
@@ -516,7 +516,7 @@
     "editUrl": "pages/guides/deploying-next-and-contentful-with-vercel.mdx",
     "name": "Next.js + Contentful",
     "type": "app",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
+    "lastEdited": "2020-06-02T23:37:58.000Z"
   },
   {
     "title": "Deploying Sanity Studio with Vercel",
@@ -561,7 +561,7 @@
     "editUrl": "pages/guides/deploying-next-and-mysql-with-vercel.mdx",
     "name": "Next.js + MySQL",
     "type": "app",
-    "lastEdited": "2020-05-14T23:00:11.000Z"
+    "lastEdited": "2020-06-10T18:46:29.000Z"
   },
   {
     "title": "Create a Charge App That Builds and Deploys with Vercel",
@@ -620,7 +620,7 @@
     "editUrl": "pages/guides/deploying-hugo-with-vercel.mdx",
     "name": "Hugo",
     "type": "site",
-    "lastEdited": "2020-05-22T06:53:55.000Z"
+    "lastEdited": "2020-06-04T20:10:32.000Z"
   },
   {
     "title": "Setup a Namecheap Domain with Vercel",
@@ -643,7 +643,7 @@
     "demo": "https://nextjs.now-examples.now.sh",
     "image": "https://og-image.now.sh/**Deploy%20Serverless%20Next.js**%20with%20Vercel.png?theme=light&md=1&fontSize=83px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg&heights=250&heights=350",
     "editUrl": "pages/guides/deploying-nextjs-with-vercel.mdx",
-    "lastEdited": "2020-05-05T11:51:28.000Z"
+    "lastEdited": "2020-06-04T20:10:32.000Z"
   },
   {
     "title": "Deploy a React App with Vercel and Create React App",
