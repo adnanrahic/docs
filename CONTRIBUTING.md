@@ -152,7 +152,7 @@ The following is to allow the content to be exported as a page with our layout.
 export default ({ children }) => <Doc meta={meta}>{children}</Doc>
 ```
 
-When adding a new page to the v2 docs, make sure to add it to the appropriate section with a URL to the object located in the `lib/data/v2/docs.js` file.
+When adding a new page to the docs, make sure to add it to the appropriate section with a URL to the object located in the `lib/data/docs.js` file.
 
 ## Guides
 
@@ -167,20 +167,19 @@ An example of a guides MDX file:
 
 ```js
 import Guide from '~/components/layout/guide'
-
 import Snippet from '~/components/snippet'
 
 export const meta = {
   title: 'The Title for the New Guide',
   description: 'The description for the new guide page.',
   published: '1 January 2019',
-  authors: ['your-zeit-username'],
+  authors: ['your-vercel-username'],
   url: '/guides/guide-url'
 }
 
 This is the content written in Markdown with MDX!.
 
-<TerminalInput># this is how we show the terminal input</TerminalInput>
+<Snippet dark text="# this is how we show the terminal input" />
 
 The following is to allow the content to be exported as a page with our layout.
 
@@ -189,17 +188,15 @@ export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
 The meta object described above is not optional since the information is used to list the guide.
 
-When adding a new guide, make sure to import and export the meta of the guide in the `lib/data/guides.js` file. This enables the guide to be listed on the guides front-page.
+When adding a new guide, make sure to import and export the meta of the guide in the `lib/data/guides.json` file. This enables the guide to be listed on the guides front-page.
 
 ## API Reference
 
 The content for this section can be found in the `pages/docs/api` directory. It uses the same versioning structure as `pages/docs`.
 
-We are currently focused on expanding the documentation for the Vercel platform 2.0 API reference which can be found in `pages/docs/api/v2`.
+As with the [Platform and Usage Docs](#platform-and-usage-documentation), the API reference uses MDX, although each file is not an independent page but instead is compiled into a single page, listing the file in the `lib/data/api.js` file.
 
-As with the [Platform and Usage Docs](#platform-and-usage-documentation), the API uses MDX, although each file is not an independent page but instead is compiled into a single page, listing the file in the `lib/data/v2/api.js` file.
-
-An example API Reference MDX file: https://github.com/vercel/docs/blob/master/pages/docs/api/v2/api-docs-mdx/api-basics/rate-limits.mdx
+An example API Reference MDX file: https://github.com/vercel/docs/blob/master/pages/docs/api/api-docs-mdx/api-basics/rate-limits.mdx
 
 ## Examples
 

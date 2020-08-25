@@ -20,7 +20,7 @@ export const meta = {
   editUrl: 'pages/guides/deploying-next-and-contentful-with-vercel.mdx',
   name: 'Next.js + Contentful',
   type: 'app',
-  lastEdited: '2020-06-02T23:37:58.000Z'
+  lastEdited: '2020-07-17T05:49:23.000Z',
 }
 
 In this guide, you will discover how to create a [Next.js](https://nextjs.org/) app that displays links to posts from the [<OrgName /> blog](/blog) by utilizing the [Contentful](https://www.contentful.com/) client, before deploying **with a single command** to [<ProductName />](/docs/v2).
@@ -30,9 +30,7 @@ In this guide, you will discover how to create a [Next.js](https://nextjs.org/) 
 By following this guide, you will create a clone of the [example app](https://nextjs-contentful.now-examples.now.sh/), a starting point to get you up and running with your own Next.js + Contentful app in minutes.
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-next-contentful-with-vercel/deploying-next-contentful-with-vercel.png`}
+  src={`${process.env.ASSETS}/guides/deploying-next-contentful-with-vercel/deploying-next-contentful-with-vercel.png`}
   width={2048 / 2.75}
   height={1170 / 2.75}
   oversize
@@ -43,15 +41,16 @@ By following this guide, you will create a clone of the [example app](https://ne
 From your [Contentful dashboard](https://app.contentful.com/), create a new space. Head to the **Content Model** section and create a new **Content Type** called **Post** by clicking the **Add content type** button.
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-next-contentful-with-vercel/creating-content-model.png`}
+  src={`${process.env.ASSETS}/guides/deploying-next-contentful-with-vercel/creating-content-model.png`}
   width={1390 / 2}
   height={1130 / 2}
   oversize
   shadow
 />
-<Caption>Creating a Content Model for your Next.js + Contentful project using the Contentful dashboard.</Caption>
+<Caption>
+  Creating a Content Model for your Next.js + Contentful project using the
+  Contentful dashboard.
+</Caption>
 
 Add the following fields to your **Content Model**, all of type **Short Text**, by clicking the **Add field** button:
 
@@ -64,15 +63,15 @@ Add the following fields to your **Content Model**, all of type **Short Text**, 
 Your **Post Content Model** should look like this:
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-next-contentful-with-vercel/completed-content-model.png`}
+  src={`${process.env.ASSETS}/guides/deploying-next-contentful-with-vercel/completed-content-model.png`}
   width={1564 / 2}
   height={786 / 2}
   oversize
   shadow
 />
-<Caption>An example Content Model for your Next.js + Contentful project.</Caption>
+<Caption>
+  An example Content Model for your Next.js + Contentful project.
+</Caption>
 
 Next, using the **Content** tab, click the **Add Post** button to create a post, providing the relevant details.
 
@@ -96,13 +95,19 @@ In the next step, you will create your [Next.js](https://nextjs.org/) app.
 
 Firstly, create a project directory and `cd` into it like so:
 
-<Snippet dark text="mkdir my-nextjs-contentful-project && cd my-nextjs-contentful-project" />
+<Snippet
+  width="100%"
+  dark
+  text="mkdir my-nextjs-contentful-project && cd my-nextjs-contentful-project"
+/>
 <Caption>Creating and entering into the project directory.</Caption>
 
 Next, initialize your project, creating a `package.json` file in the process:
 
-<Snippet dark text="npm init -y" />
-<Caption>Initializing your project with a <InlineCode>package.json</InlineCode> file.</Caption>
+<Snippet width="100%" dark text="npm init -y" />
+<Caption>
+  Initializing your project with a <InlineCode>package.json</InlineCode> file.
+</Caption>
 
 <Note>
   Using the <InlineCode>-y</InlineCode> flag will initialize the created{' '}
@@ -112,8 +117,12 @@ Next, initialize your project, creating a `package.json` file in the process:
 
 Next, add the project dependencies:
 
-<Snippet dark text="npm i contentful next react react-dom" />
-<Caption>Adding <InlineCode>contentful</InlineCode>, <InlineCode>next</InlineCode>, <InlineCode>react</InlineCode> and <InlineCode>react-dom</InlineCode> as dependencies to your project.</Caption>
+<Snippet width="100%" dark text="npm i contentful next react react-dom" />
+<Caption>
+  Adding <InlineCode>contentful</InlineCode>, <InlineCode>next</InlineCode>,{' '}
+  <InlineCode>react</InlineCode> and <InlineCode>react-dom</InlineCode> as
+  dependencies to your project.
+</Caption>
 
 With the project initialized, create a `/pages` directory with a `index.js` file inside that uses the following code:
 
@@ -124,7 +133,7 @@ import Post from '../components/post'
 
 const client = require('contentful').createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
-  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN
+  accessToken: process.env.NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN,
 })
 
 function HomePage() {
@@ -155,7 +164,7 @@ function HomePage() {
         />
       </Head>
       {posts.length > 0
-        ? posts.map(p => (
+        ? posts.map((p) => (
             <Post
               alt={p.fields.alt}
               date={p.fields.date}
@@ -295,14 +304,24 @@ NEXT_PUBLIC_CONTENTFUL_ACCESS_TOKEN=your-access-token
 
 Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployments/basics/), create two [Secrets](/docs/cli#commands/secrets) with the commands below:
 
-<Snippet dark text="vercel secrets add contentful_space_id your-space-id" />
+<Snippet
+  width="100%"
+  dark
+  text="vercel secrets add contentful_space_id your-space-id"
+/>
 <Caption>
-  Adding the <InlineCode>contentful_space_id</InlineCode> secret to your project using <Link href="/docs/cli#commands/secrets">Secrets</Link>.
+  Adding the <InlineCode>contentful_space_id</InlineCode> secret to your project
+  using <Link href="/docs/cli#commands/secrets">Secrets</Link>.
 </Caption>
 
-<Snippet dark text="vercel secrets add contentful_access_token your-access-token" />
+<Snippet
+  width="100%"
+  dark
+  text="vercel secrets add contentful_access_token your-access-token"
+/>
 <Caption>
-  Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your project using <Link href="/docs/cli#commands/secrets">Secrets</Link>.
+  Adding the <InlineCode>CONTENTFUL_ACCESS_TOKEN</InlineCode> secret to your
+  project using <Link href="/docs/cli#commands/secrets">Secrets</Link>.
 </Caption>
 
 ## Step 5: Deploying the App
@@ -312,5 +331,5 @@ Lastly, to make your API keys available for [cloud deployment](/docs/v2/deployme
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
 export const config = {
-  amp: 'hybrid'
+  amp: 'hybrid',
 }

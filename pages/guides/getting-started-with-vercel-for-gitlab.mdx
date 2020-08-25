@@ -15,10 +15,10 @@ export const meta = {
   authors: ['arunoda', 'timothy'],
   url: '/guides/getting-started-with-vercel-for-gitlab',
   editUrl: 'pages/guides/getting-started-with-vercel-for-gitlab.mdx',
-  lastEdited: '2020-04-16T03:34:45.000Z'
+  lastEdited: '2020-07-10T15:00:57.000Z',
 }
 
-The [<ProductName /> for GitLab integration](/docs/v2/integrations/vercel-for-gitlab) provides you with automatic deployments for each push to a project, automatic preview URLs for pushes to the default branch, and instant rollbacks for reverts.
+The [<ProductName /> for GitLab integration](/docs/v2/integrations/vercel-for-gitlab) provides you with automatic deployments for each push to a project, automatic preview URLs for pushes to the [Production Branch](/docs/v2/git-integrations#production-branch), and instant rollbacks for reverts.
 
 This guide will walk you through how to set up the <ProductName /> for GitLab integration for your projects.
 
@@ -38,11 +38,11 @@ Push this file to your GitLab project so you have one file inside of it.
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-vercel-for-gitlab/gitlab-project.png`}
-  width={2152/2.5}
-  height={1450/2.5}
+  width={2152 / 2.5}
+  height={1450 / 2.5}
   oversize
 />
-<Caption style={{marginTop: '-64px'}}>A simple GitLab project setup.</Caption>
+<Caption style={{ marginTop: '-64px' }}>A simple GitLab project setup.</Caption>
 
 ## Step 2: Connect <NameWrapper name={PRODUCT_NAME} /> to Your GitLab User and Project
 
@@ -58,11 +58,11 @@ From the [account settings](/account) section where you connected your GitLab ac
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-vercel-for-gitlab/new-project-link.png`}
-  width={2152/2.5}
-  height={1450/2.5}
+  width={2152 / 2.5}
+  height={1450 / 2.5}
   oversize
 />
-<Caption style={{marginTop: '-64px'}}>Linking a GitLab project.</Caption>
+<Caption style={{ marginTop: '-64px' }}>Linking a GitLab project.</Caption>
 
 With a project linked, no further setup is required on <OrgName />.
 
@@ -76,11 +76,13 @@ Now, visiting your [commits](https://gitlab.com/now-examples/hello-world/commits
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-vercel-for-gitlab/commits-page.png`}
-  width={2080/2.5}
-  height={1392/2.5}
+  width={2080 / 2.5}
+  height={1392 / 2.5}
   oversize
 />
-<Caption style={{marginTop: '-40px'}}>A deployed commit using <ProductName /> for GitLab.</Caption>
+<Caption style={{ marginTop: '-40px' }}>
+  A deployed commit using <ProductName /> for GitLab.
+</Caption>
 
 This green status symbol indicates that <ProductName /> successfully deployed your commit.
 
@@ -88,37 +90,43 @@ Clicking the [commit](https://gitlab.com/now-examples/hello-world/commit/9fade7c
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-vercel-for-gitlab/deploy-comment.png`}
-  width={2080/2.5}
-  height={1392/2.5}
+  width={2080 / 2.5}
+  height={1392 / 2.5}
   oversize
 />
-<Caption style={{marginTop: '-40px'}}>A unique URL for an individual commit.</Caption>
+<Caption style={{ marginTop: '-40px' }}>
+  A unique URL for an individual commit.
+</Caption>
 
 Each commit will result in a unique URL just like the above.
 
 ### Deployments and Preview URLs for Merge Requests
 
-[Merge requests](https://docs.gitlab.com/ee/user/project/merge_requests/) are a way to submit changes to a project without pushing directly to the default branch. This comes in handy when you're working on a feature that is either in progress or needs a review before being launched into production.
+[Merge requests](https://docs.gitlab.com/ee/user/project/merge_requests/) are a way to submit changes to a project without pushing directly to the [Production Branch](/docs/v2/git-integrations#production-branch). This comes in handy when you're working on a feature that is either in progress or needs a review before being launched into production.
 
 There are multiple ways to [create a merge request](https://docs.gitlab.com/ee/gitlab-basics/add-merge-request.html), however, to test, create a merge request by editing the `index.html` file, edit the target branch, and then click "Start a new merge request".
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-vercel-for-gitlab/create-merge-request.png`}
-  width={2080/2.5}
-  height={1392/2.5}
+  width={2080 / 2.5}
+  height={1392 / 2.5}
   oversize
 />
-<Caption style={{marginTop: '-40px'}}>Creating a merge request from GitLab's UI.</Caption>
+<Caption style={{ marginTop: '-40px' }}>
+  Creating a merge request from GitLab's UI.
+</Caption>
 
 After you commit and create the merge request, you will get a [new view](https://gitlab.com/now-examples/hello-world/merge_requests/1) that will start a deployment pipeline for your changes:
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-vercel-for-gitlab/merge-request-pipeline.png`}
-  width={2080/2.5}
-  height={1392/2.5}
+  width={2080 / 2.5}
+  height={1392 / 2.5}
   oversize
 />
-<Caption style={{marginTop: '-40px'}}>A merge request deployment pipeline success message.</Caption>
+<Caption style={{ marginTop: '-40px' }}>
+  A merge request deployment pipeline success message.
+</Caption>
 
 The pipeline information shows the status as <ProductName /> builds your app. In this case, it has successfully built. It will show a different icon when <ProductName /> is building the app.
 
@@ -126,17 +134,19 @@ Below the pipeline message, a comment will present a [preview URL](/docs/v2/cust
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-vercel-for-gitlab/merge-request-alias.png`}
-  width={2080/2.5}
-  height={1392/2.5}
+  width={2080 / 2.5}
+  height={1392 / 2.5}
   oversize
 />
-<Caption style={{marginTop: '-40px'}}>A preview URL created from a merge request.</Caption>
+<Caption style={{ marginTop: '-40px' }}>
+  A preview URL created from a merge request.
+</Caption>
 
 You can test this by creating another commit for the merge request and accessing the preview URL. You will notice that, once the commit is deployed, the preview URL will have been updated with the changes.
 
 ## Deploying to Production
 
-Pushing or merging to the [default branch](https://docs.gitlab.com/ee/user/project/repository/branches/#default-branch) will result in a deployment, like any other branch or push. However, if you have a production domain set in the **Domains** section of your project dashboard, these deployments will be automatically available at your configured destination.
+Pushing or merging to the [Production Branch](/docs/v2/git-integrations#production-branch) will result in a deployment, like any other branch or push. However, if you have a production domain set in the **Domains** section of your Project Settings, these deployments will be automatically available at your configured destination.
 
 <Note>
   You can read more about adding domains, both preview and production, to
@@ -147,24 +157,26 @@ Pushing or merging to the [default branch](https://docs.gitlab.com/ee/user/proje
   .
 </Note>
 
-When you push this change to the default branch, this and all subsequent commits to the branch will have the following comment, letting you know that your deployment is live in production.
+When you push this change to the [Production Branch](/docs/v2/git-integrations#production-branch), this and all subsequent commits to the branch will have the following comment, letting you know that your deployment is available in Production:
 
 <Image
   src={`${process.env.ASSETS}/guides/getting-started-with-vercel-for-gitlab/production-deployment.png`}
-  width={2080/2.5}
-  height={1392/2.5}
+  width={2080 / 2.5}
+  height={1392 / 2.5}
   oversize
 />
-<Caption style={{marginTop: '-40px'}}>A preview URL created from a merge request.</Caption>
+<Caption style={{ marginTop: '-40px' }}>
+  A preview URL created from a merge request.
+</Caption>
 
 ## In Conclusion
 
 Through this guide, you should now have a bulletproof deployment pipeline for all of your GitLab projects, using [<ProductName /> for GitLab](/docs/v2/integrations/vercel-for-gitlab).
 
-With every push, an automatic deployment. With every merge request, a unique preview URL. And with every update to the default branch, your changes are updated for the production domain.
+With every push, an automatic deployment. With every merge request, a unique preview URL. And with every update to the [Production Branch](/docs/v2/git-integrations#production-branch), your changes are updated for the Production Domain.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
 export const config = {
-  amp: 'hybrid'
+  amp: 'hybrid',
 }

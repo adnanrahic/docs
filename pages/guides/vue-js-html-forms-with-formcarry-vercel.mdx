@@ -22,7 +22,7 @@ export const meta = {
   image: `https://og-image.now.sh/Create%20**Vue.js%20Forms**%20with%20Formcarry%20and%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=90px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fvue-js-html-forms-with-formcarry-vercel%2Flogo.png`,
   url: '/guides/vue-js-html-forms-with-formcarry-vercel',
   editUrl: 'pages/guides/vue-js-html-forms-with-formcarry-vercel.mdx',
-  lastEdited: '2020-04-25T00:32:18.000Z'
+  lastEdited: '2020-07-17T05:49:23.000Z',
 }
 
 [Formcarry](https://formcarry.com) provides HTML Form processing for front-end developers and designers.
@@ -42,16 +42,14 @@ Create a Vue.js project using [npm](https://npmjs.org), then move into the direc
 
 After the initialization, run the following command to start a local Vue.js development server:
 
-<Snippet dark text="npm run serve" />
+<Snippet width="100%" dark text="npm run serve" />
 
 ## Step 2: Create Your Form on Formcarry
 
 Visit your [Formcarry Dashboard](https://formcarry.com/login) and create a new form.
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/vue-js-html-forms-with-formcarry-vercel/add-form.png`}
+  src={`${process.env.ASSETS}/guides/vue-js-html-forms-with-formcarry-vercel/add-form.png`}
   width={1984 / 2}
   height={1104 / 2}
   oversize
@@ -63,9 +61,7 @@ Visit your [Formcarry Dashboard](https://formcarry.com/login) and create a new f
 With your form created, you can then copy the form's endpoint from the form overview page. This will be used in your project as a place to send form data.
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/vue-js-html-forms-with-formcarry-vercel/form-endpoint.png`}
+  src={`${process.env.ASSETS}/guides/vue-js-html-forms-with-formcarry-vercel/form-endpoint.png`}
   width={1984 / 2}
   height={1144 / 2}
   oversize
@@ -117,27 +113,27 @@ Now that you have a Formcarry form, create a `/src/components/Form.vue` file in 
 <script>
   export default {
     name: 'Form',
-    data: function() {
+    data: function () {
       return {
         status: null,
         email: null,
-        message: null
+        message: null,
       }
     },
     methods: {
-      sendForm: function(event) {
+      sendForm: function (event) {
         event.preventDefault()
 
         fetch('Your-Form-Endpoint', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            Accept: 'application/json'
+            Accept: 'application/json',
           },
-          body: JSON.stringify({ email: this.email, message: this.message })
+          body: JSON.stringify({ email: this.email, message: this.message }),
         })
-          .then(response => response.json())
-          .then(response => {
+          .then((response) => response.json())
+          .then((response) => {
             if (response.code === 200) {
               this.status = 'success'
             } else {
@@ -147,8 +143,8 @@ Now that you have a Formcarry form, create a `/src/components/Form.vue` file in 
           })
           // network error
           .catch(() => (this.status = 'error'))
-      }
-    }
+      },
+    },
   }
 </script>
 
@@ -185,8 +181,8 @@ Next, replace your `App.vue` file's contents with the following:
   export default {
     name: 'App',
     components: {
-      Form
-    }
+      Form,
+    },
   }
 </script>
 
@@ -220,5 +216,5 @@ You are now ready to deploy your project live and start recieving form submissio
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
 export const config = {
-  amp: 'hybrid'
+  amp: 'hybrid',
 }

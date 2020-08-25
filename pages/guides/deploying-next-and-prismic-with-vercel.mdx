@@ -22,7 +22,7 @@ export const meta = {
   url: '/guides/deploying-next-and-prismic-with-vercel',
   image: `https://vercel.com/docs/static/guides/deploying-next-prismic-with-vercel/deploying-next-prismic-with-vercel.png`,
   editUrl: 'pages/guides/deploying-next-and-prismic-with-vercel.mdx',
-  lastEdited: '2020-04-16T03:22:57.000Z'
+  lastEdited: '2020-07-17T05:49:23.000Z',
 }
 
 In this guide, you will create a [Next.js](https://nextjs.org/) blog site from scratch that will show you how to; source the content you have in a Prismic repository, create pages programmatically, handle dynamic routing, and deploy it with [<ProductName />](/docs/v2).
@@ -30,9 +30,7 @@ In this guide, you will create a [Next.js](https://nextjs.org/) blog site from s
 [Next.js](https://nextjs.org/) from [<OrgName />](/) is a **production-ready framework** that helps you create fast React apps. [Prismic](https://prismic.io/) is a Headless Content Management System that **helps developers and content managers to work on websites and apps together**.
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-next-prismic-with-vercel/deploying-next-prismic-with-vercel.png`}
+  src={`${process.env.ASSETS}/guides/deploying-next-prismic-with-vercel/deploying-next-prismic-with-vercel.png`}
   width={2048 / 2.75}
   height={1170 / 2.75}
   oversize
@@ -44,10 +42,16 @@ For this guide, you will start with **installing a boilerplate Next.js project t
 
 This process clones the codebase and guides you through setting up the repository that will be used as your blog's content source.
 
-<Snippet dark text="npm i -g prismic-cli" />
-<Caption>Installing the <InlineCode>prismic-cli</InlineCode> command line tool.</Caption>
+<Snippet width="100%" dark text="npm i -g prismic-cli" />
+<Caption>
+  Installing the <InlineCode>prismic-cli</InlineCode> command line tool.
+</Caption>
 
-<Snippet dark text="prismic theme https://github.com/raulg/prismic-next-blog" />
+<Snippet
+  width="100%"
+  dark
+  text="prismic theme https://github.com/raulg/prismic-next-blog"
+/>
 <Caption>Quickstarting your Prismic boilerplate project.</Caption>
 
 Navigate to the folder you have created and inspect the files and folders that are included in this barebones project. You will find the following:
@@ -61,8 +65,12 @@ You will notice that for now it is only a simple index page, as defined in `/pag
 
 Continue by installing the required packages to integrate your Next.js web app with Prismic.
 
-<Snippet dark text="npm i prismic-javascript prismic-reactjs" />
-<Caption>Adding the <InlineCode>prismic-javascript</InlineCode> and <InlineCode>prismic-reactjs</InlineCode> dependencies to fetch and render documents.</Caption>
+<Snippet width="100%" dark text="npm i prismic-javascript prismic-reactjs" />
+<Caption>
+  Adding the <InlineCode>prismic-javascript</InlineCode> and{' '}
+  <InlineCode>prismic-reactjs</InlineCode> dependencies to fetch and render
+  documents.
+</Caption>
 
 If you open the `prismic-configuration.js` file, you might notice that the API endpoint has **already been set up according to the repository you created during the installation process**.
 
@@ -90,7 +98,7 @@ import Prismic from 'prismic-javascript'
 import { RichText, Date } from 'prismic-reactjs'
 import { client } from '../prismic-configuration'
 
-const BlogHome = props => (
+const BlogHome = (props) => (
   <div>
     <img src={props.home.data.image.url} alt="avatar image" />
     <h1>{RichText.asText(props.home.data.headline)}</h1>
@@ -98,7 +106,7 @@ const BlogHome = props => (
   </div>
 )
 
-BlogHome.getInitialProps = async context => {
+BlogHome.getInitialProps = async (context) => {
   const home = await client.getSingle('blog_home')
 
   return { home }
@@ -126,21 +134,21 @@ The `home` prop now contains the [document object](https://prismic.io/docs/react
 There are many ways to query the API to get the data you require. For now, use a [Predicate](https://prismic.io/docs/reactjs/query-the-api/query-predicates-reference) to get all the **post** documents you have created and sort them in descending order based on their assigned date.
 
 ```js
-const BlogHome = props => (
+const BlogHome = (props) => (
   <div>
     <img src={props.home.data.image.url} alt="avatar image" />
     <h1>{RichText.asText(props.home.data.headline)}</h1>
     <p>{RichText.asText(props.home.data.description)}</p>
 
     <ul>
-      {props.posts.results.map(post => (
+      {props.posts.results.map((post) => (
         <li key={post.uid}>{RichText.render(post.data.title)}</li>
       ))}
     </ul>
   </div>
 )
 
-BlogHome.getInitialProps = async context => {
+BlogHome.getInitialProps = async (context) => {
   const home = await client.getSingle('blog_home')
   const posts = await client.query(
     Prismic.Predicates.at('document.type', 'post'),
@@ -174,7 +182,7 @@ import { RichText, Date } from 'prismic-reactjs'
 import { client } from '../prismic-configuration'
 import Link from 'next/link'
 
-const Post = props => (
+const Post = (props) => (
   <div>
     <Link href="/">
       <a>back to blog list</a>
@@ -185,7 +193,7 @@ const Post = props => (
   </div>
 )
 
-Post.getInitialProps = async context => {
+Post.getInitialProps = async (context) => {
   const { uid } = context.query
   const post = await client.getByUID('post', uid)
 

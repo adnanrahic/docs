@@ -8,7 +8,7 @@ import {
   Highlight,
   connectAutoComplete,
   Snippet,
-  connectStateResults
+  connectStateResults,
 } from 'react-instantsearch-dom'
 import SearchIcon from '~/components/icons/search'
 import * as metrics from '~/lib/metrics'
@@ -17,12 +17,12 @@ class AutoComplete extends Component {
   static propTypes = {
     hits: PropTypes.arrayOf(PropTypes.object).isRequired,
     currentRefinement: PropTypes.string.isRequired,
-    refine: PropTypes.func.isRequired
+    refine: PropTypes.func.isRequired,
   }
 
   state = {
     value: '',
-    inputFocused: false
+    inputFocused: false,
   }
 
   componentDidMount() {
@@ -30,7 +30,7 @@ class AutoComplete extends Component {
 
     if (this.props.router.query.query) {
       this.setState({
-        value: decodeURIComponent(this.props.router.query.query) || ''
+        value: decodeURIComponent(this.props.router.query.query) || '',
       })
     }
   }
@@ -40,20 +40,28 @@ class AutoComplete extends Component {
   }
 
   onKeyUp(event) {
-      switch (event.key) {
-          case '/':
-              this.input.focus()
-              break;
-          case 'Escape':
-              this.input.blur()
-              break;
-      }
+    const el = document.activeElement
+
+    // Don't focus the autocomplete if focus is inside an input
+    if (
+      el &&
+      (el.contentEditable === 'true' ||
+        el.tagName === 'INPUT' ||
+        el.tagName === 'TEXTAREA' ||
+        el.tagName === 'SELECT')
+    ) {
+      return
+    }
+
+    if (event.key == 'Escape') {
+      this.input.blur()
+    }
   }
 
-  storeInputReference = autosuggest => {
-      if (autosuggest !== null) {
-          this.input = autosuggest.input;
-      }
+  storeInputReference = (autosuggest) => {
+    if (autosuggest !== null) {
+      this.input = autosuggest.input
+    }
   }
 
   onChange = (_, { newValue }) => {
@@ -90,14 +98,14 @@ class AutoComplete extends Component {
       this.props.router.push({
         pathname: suggestion.url,
         query: { query: encodeURIComponent(this.state.value) },
-        hash: suggestion.anchor
+        hash: suggestion.anchor,
       })
     }
   }
 
   getSuggestionValue = () => this.state.value
 
-  renderSuggestion = hit => {
+  renderSuggestion = (hit) => {
     return (
       <NextLink
         href={`${hit.url}?query=${encodeURIComponent(this.state.value)}${
@@ -108,7 +116,7 @@ class AutoComplete extends Component {
           <span className="suggestion__title">
             <Highlight attribute="title" tagName="mark" hit={hit} />
             <div className="tags">
-              {hit._tags.map(tag => (
+              {hit._tags.map((tag) => (
                 <span key={tag} className="tag">
                   {tag}
                 </span>
@@ -121,7 +129,12 @@ class AutoComplete extends Component {
             </span>
           )}
           <span className="suggestion__content">
-            <Snippet hit={hit} attribute="content" tagName="mark" />
+            <Snippet
+              width="100%"
+              hit={hit}
+              attribute="content"
+              tagName="mark"
+            />
           </span>
         </a>
       </NextLink>
@@ -137,7 +150,7 @@ class AutoComplete extends Component {
       onFocus: this.onToggleFocus,
       onBlur: this.onToggleFocus,
       type: 'search',
-      value
+      value,
     }
 
     const NoResults = connectStateResults(
@@ -145,7 +158,8 @@ class AutoComplete extends Component {
         searchState &&
         searchState.query &&
         !searching &&
-        (searchResults && searchResults.nbHits === 0) ? (
+        searchResults &&
+        searchResults.nbHits === 0 ? (
           <div className="no-results">
             No results for <span>"{this.state.value}"</span>.<br /> Try again
             with a different keyword.
@@ -158,7 +172,7 @@ class AutoComplete extends Component {
         <span
           className={cn('search__container', {
             focused: inputFocused,
-            'has-value': !!value.length
+            'has-value': !!value.length,
           })}
         >
           {!this.state.value && (

@@ -8,7 +8,7 @@ import ProductName from '~/components/name/product-name'
 
 export const meta = {
   editUrl: 'pages/docs/configuration/configuration-mdx/routes/routes.mdx',
-  lastEdited: '2019-11-05T19:44:00.000Z'
+  lastEdited: '2019-11-05T19:44:00.000Z',
 }
 
 # Routes
@@ -33,10 +33,10 @@ A Route can be defined within a project's [`vercel.json` configuration file](/do
   "routes": [{ "src": "/about", "dest": "/about.html" }]
 }`}</Code>
 <Caption>
-    An example <InlineCode>vercel.json</InlineCode> file with a{' '}
-    <InlineCode>routes</InlineCode> property that proxies one path to another
-    upon request.
-  </Caption>
+  An example <InlineCode>vercel.json</InlineCode> file with a{' '}
+  <InlineCode>routes</InlineCode> property that proxies one path to another upon
+  request.
+</Caption>
 
 &#8203;<ProductName /> Routes have multiple properties for each route object that help define the behavior of a response to each request to a particular path.
 
@@ -52,10 +52,10 @@ The following example shows a `vercel.json` configuration that takes a `src` pat
   "routes": [{ "src": "/about", "dest": "/about.html" }]
 }`}</Code>
 <Caption>
-    An example <InlineCode>vercel.json</InlineCode> file with a{' '}
-    <InlineCode>routes</InlineCode> property that proxies one path to another
-    upon request.
-  </Caption>
+  An example <InlineCode>vercel.json</InlineCode> file with a{' '}
+  <InlineCode>routes</InlineCode> property that proxies one path to another upon
+  request.
+</Caption>
 
 ## dest
 
@@ -213,10 +213,10 @@ As an example, you can use this property when you have an API endpoint and only 
 
 <Note>
   The above example uses the{' '}
-  <Link href="/docs/runtimes#official-builders/node-js">@now/node</Link> Runtime
-  as an example of a <InlineCode>vercel.json</InlineCode> configuration that
-  tells <ProductName /> to build JavaScript files with Node.js and outputs them
-  as{' '}
+  <Link href="/docs/runtimes#official-builders/node-js">@vercel/node</Link>{' '}
+  Runtime as an example of a <InlineCode>vercel.json</InlineCode> configuration
+  that tells <ProductName /> to build JavaScript files with Node.js and outputs
+  them as{' '}
   <Link href="/docs/v2/serverless-functions/introduction/">
     Serverless Functions
   </Link>

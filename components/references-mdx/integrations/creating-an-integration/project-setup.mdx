@@ -10,7 +10,7 @@ import ProductShortName from '~/components/name/product-short-name'
 export const meta = {
   editUrl:
     'pages/docs/integrations/integrations-docs-mdx/creating-an-integration/project-setup.mdx',
-  lastEdited: '2019-10-15T22:03:42.000Z'
+  lastEdited: '2019-10-15T22:03:42.000Z',
 }
 
 ## Step 1: Project Setup
@@ -33,8 +33,10 @@ Next, install <ProductShortName /> CLI with a package manager.
 
 To install <ProductShortName /> CLI with [npm](https://www.npmjs.com/), use the following from the terminal:
 
-<TerminalInput>npm i -g now</TerminalInput>
-<Caption>Installing <ProductShortName /> CLI with npm.</Caption>
+<TerminalInput>npm i -g vercel</TerminalInput>
+<Caption>
+  Installing <ProductShortName /> CLI with npm.
+</Caption>
 
 ### Add a package.json File
 
@@ -44,7 +46,7 @@ We are using some npm modules inside this UIHook. So, let's create a file called
 {
   "name": "my-ui-hook",
   "dependencies": {
-    "@zeit/integration-utils": "latest"
+    "@vercel/integration-utils": "latest"
   }
 }
 ```

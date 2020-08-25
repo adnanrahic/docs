@@ -5,11 +5,12 @@ import Wrapper from '~/components/layout/wrapper'
 import { H1, H3, P } from '~/components/text'
 import Link from '~/components/text/link'
 import Button from '~/components/buttons'
-import knowledge from '~/lib/data/knowledge.json'
 import { PRODUCT_NAME } from '~/lib/constants'
 import Footer from '~/components/footer'
 
-const Knowledge = () => (
+import { getAllKnowledgeArticles } from '~/lib/data/datocms'
+
+const Knowledge = ({ articles }) => (
   <>
     <Head
       titlePrefix=""
@@ -27,7 +28,7 @@ const Knowledge = () => (
           </P>
 
           <div className="actions">
-            <span className="caption">Sorted by Newest</span>
+            <span className="caption">Sorted by Published Date</span>
             <Link
               href="https://github.com/vercel/docs/issues/new?labels=Section%3A+Knowledge"
               underlineOnHover={false}
@@ -42,16 +43,28 @@ const Knowledge = () => (
 
       <Wrapper>
         <div className="knowledge-list">
-          {knowledge.map((k, i) => (
-            <Link href={k.url} key={`${k.title}.${i}`}>
-              <article className="guide">
+          {articles.map((article, i) => (
+            <Link
+              href="/knowledge/[slug]"
+              as={`/knowledge/${article.slug}`}
+              key={`${article.slug}.${i}`}
+            >
+              <article className="article">
                 <div className="titles">
-                  <H3>{k.title}</H3>
-                  <P>{k.description}</P>
+                  <H3>{article.title}</H3>
+                  <P style={{ color: '#444' }}>{article.description}</P>
                 </div>
                 <div className="meta">
                   <span className="date">
-                    Added on {formatDate(k.published, 'MMMM Do YYYY')}
+                    {article._firstPublishedAt === article._publishedAt
+                      ? `Published at ${formatDate(
+                          article._firstPublishedAt,
+                          'MMMM Do YYYY'
+                        )}`
+                      : `Revised at ${formatDate(
+                          article._publishedAt,
+                          'MMMM Do YYYY'
+                        )}`}
                   </span>
                 </div>
               </article>
@@ -66,6 +79,7 @@ const Knowledge = () => (
     <style jsx>{`
       .titles {
         margin-right: var(--geist-gap);
+        flex: 4;
       }
 
       .knowledge {
@@ -114,7 +128,7 @@ const Knowledge = () => (
         padding-top: 8px;
       }
 
-      .knowledge-list > :global(*:not(:last-child)) .guide {
+      .knowledge-list > :global(a) > .article {
         border-bottom: 1px solid #eaeaea;
       }
 
@@ -122,45 +136,46 @@ const Knowledge = () => (
         text-decoration: none;
       }
 
-      .guide {
+      .article {
         width: 100%;
         display: flex;
         justify-content: space-between;
         padding: 24px 0;
         position: relative;
+        color: #000;
       }
 
-      .guide :global(h3) {
+      .article :global(h3) {
         color: #000;
         margin: 0;
         padding-right: 64px;
       }
 
-      .guide :global(p) {
+      .article :global(p) {
         margin-bottom: 0;
         color: #222;
         padding-right: 64px;
       }
 
-      .guide :global(.avatar-group) {
+      .article :global(.avatar-group) {
         width: auto;
       }
 
-      .guide:hover :global(h4) {
+      .article:hover :global(h4) {
         text-decoration: underline;
       }
 
-      .guide.contribute {
+      .article.contribute {
         margin-top: 24px;
       }
 
-      .guide.contribute :global(h4) {
+      .article.contribute :global(h4) {
       }
 
-      .guide.contribute :global(p) {
+      .article.contribute :global(p) {
       }
 
-      .guide.contribute .meta .avatar {
+      .article.contribute .meta .avatar {
         width: 24px;
         height: 24px;
         background: #000;
@@ -176,7 +191,7 @@ const Knowledge = () => (
 
       .meta {
         display: flex;
-        flex: 0 0 auto;
+        flex: 1;
         flex-direction: column-reverse;
         justify-content: space-between;
         align-items: flex-end;
@@ -187,14 +202,15 @@ const Knowledge = () => (
         font-size: var(--font-size-small);
         line-height: var(--line-height-primary);
         margin-bottom: 2px;
+        font-size: 0.8em;
       }
 
       @media (max-width: 768px) {
-        .guide {
+        .article {
           flex-direction: column;
         }
 
-        .guide :global(p) {
+        .article :global(p) {
           padding-right: 0;
         }
 
@@ -209,6 +225,17 @@ const Knowledge = () => (
 
 export default Knowledge
 
+export async function getStaticProps() {
+  const articles = await getAllKnowledgeArticles({ first: 100 })
+
+  return {
+    props: {
+      articles,
+    },
+    revalidate: 5,
+  }
+}
+
 export const config = {
-  amp: 'hybrid'
+  amp: 'hybrid',
 }

@@ -3,7 +3,7 @@ import Caption from '~/components/text/caption'
 import { InlineCode } from '~/components/text/code'
 
 export const meta = {
-  lastEdited: '2019-10-15T22:03:42.000Z'
+  lastEdited: '2019-10-15T22:03:42.000Z',
 }
 
 ## List
@@ -12,16 +12,25 @@ The `vercel list` command, which can be shortened to `vercel ls`, is used to pro
 
 ### Basic Usage
 
-<Snippet dark text="vercel list" />
-<Caption>Using the <InlineCode>vercel list</InlineCode> command to retrieve information about multiple deployments.</Caption>
+<Snippet width="100%" dark text="vercel list" />
+<Caption>
+  Using the <InlineCode>vercel list</InlineCode> command to retrieve information
+  about multiple deployments.
+</Caption>
 
 ### Extended Usage
 
-<Snippet dark text="vercel list [project-name]" />
-<Caption>Using the <InlineCode>vercel list</InlineCode> command to retrieve information about deployments for a specific project.</Caption>
+<Snippet width="100%" dark text="vercel list [project-name]" />
+<Caption>
+  Using the <InlineCode>vercel list</InlineCode> command to retrieve information
+  about deployments for a specific project.
+</Caption>
 
-<Snippet dark text="vercel list [project-name] [--meta foo=bar]" />
-<Caption>Using the <InlineCode>vercel list</InlineCode> command to retrieve information about deployments filtered by metadata.</Caption>
+<Snippet width="100%" dark text="vercel list [project-name] [--meta foo=bar]" />
+<Caption>
+  Using the <InlineCode>vercel list</InlineCode> command to retrieve information
+  about deployments filtered by metadata.
+</Caption>
 
 ### Global Options
 
@@ -46,5 +55,8 @@ The `--meta` option, shorthand `-m`, can be used to filter results based on proj
 
 ##### Usage Example
 
-<Snippet dark text="vercel list --meta key1=value1 key2=value2" />
-<Caption>Using the <InlineCode>vercel list</InlineCode> command with the <InlineCode>--meta</InlineCode> option.</Caption>
+<Snippet width="100%" dark text="vercel list --meta key1=value1 key2=value2" />
+<Caption>
+  Using the <InlineCode>vercel list</InlineCode> command with the{' '}
+  <InlineCode>--meta</InlineCode> option.
+</Caption>

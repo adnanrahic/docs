@@ -9,7 +9,7 @@ import OrgName from '~/components/name/org-name'
 export const meta = {
   editUrl:
     'pages/docs/integrations/integrations-docs-mdx/creating-an-integration/create-a-uihook.mdx',
-  lastEdited: '2019-10-15T22:03:42.000Z'
+  lastEdited: '2019-10-15T22:03:42.000Z',
 }
 
 ## Step 2: Creating a UIHook
@@ -19,7 +19,7 @@ This step will detail the creation of a UIHook for a counter application. This e
 First, create an `index.js` file and add the following code:
 
 ```js
-const { withUiHook } = require('@zeit/integration-utils')
+const { withUiHook } = require('@vercel/integration-utils')
 
 let count = 0
 
@@ -65,7 +65,7 @@ To run the UIHook locally, create a `vercel.json` file and add the following:
 {
   "name": "my-ui-hook",
   "version": 2,
-  "builds": [{ "src": "index.js", "use": "@now/node" }]
+  "builds": [{ "src": "index.js", "use": "@vercel/node" }]
 }
 ```
 
@@ -76,5 +76,5 @@ To run the UIHook locally, create a `vercel.json` file and add the following:
 Then, run the following commands:
 
 <TerminalInput>npm install</TerminalInput>
-<TerminalInput>now dev --listen 5005</TerminalInput>
+<TerminalInput>vercel dev --listen 5005</TerminalInput>
 <Caption>Running the created UIHook locally on port 5005.</Caption>

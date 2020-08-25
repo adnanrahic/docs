@@ -4,7 +4,7 @@ import { InlineCode } from '~/components/text/code'
 export const meta = {
   editUrl:
     'pages/docs/integrations/integrations-docs-mdx/htm-support/why-use-htm.mdx',
-  lastEdited: '2019-10-15T22:03:42.000Z'
+  lastEdited: '2019-10-15T22:03:42.000Z',
 }
 
 ## Why Use htm
@@ -14,7 +14,7 @@ Using htm greatly simplifies the process of creating UIHook's, let's take a look
 This is a UIHook created using a JavaScript template string:
 
 ```js
-const { withUiHook } = require('@zeit/integration-utils')
+const { withUiHook } = require('@vercel/integration-utils')
 
 module.exports = withUiHook(({ payload }) => {
   return `
@@ -32,7 +32,7 @@ module.exports = withUiHook(({ payload }) => {
 This is the same UIHook created using `htm`:
 
 ```js
-const { withUiHook, htm } = require('@zeit/integration-utils')
+const { withUiHook, htm } = require('@vercel/integration-utils')
 
 module.exports = withUiHook(({ payload }) => {
   return htm`

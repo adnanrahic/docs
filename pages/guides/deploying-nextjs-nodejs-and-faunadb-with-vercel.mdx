@@ -22,7 +22,8 @@ export const meta = {
   url: '/guides/deploying-nextjs-nodejs-and-faunadb-with-vercel',
   image: `https://og-image.now.sh/**Deploy%20a%20FaunaDB-Powered%20Next.js%20app**%20%3Cbr%2F%3E%20with%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=70px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fseeklogo.com%2Fimages%2FN%2Fnext-js-logo-7929BCD36F-seeklogo.com.png&images=https%3A%2F%2Fres-3.cloudinary.com%2Fcrunchbase-production%2Fimage%2Fupload%2Fc_lpad%2Ch_256%2Cw_256%2Cf_auto%2Cq_auto%3Aeco%2Fywnzi0pt0uw9klatmadc`,
   editUrl: 'pages/guides/deploying-nextjs-nodejs-and-faunadb-with-vercel.mdx',
-  lastEdited: '2020-05-14T23:00:11.000Z'
+  lastEdited: '2020-07-17T05:49:23.000Z',
+  rank: 21,
 }
 
 [FaunaDB](https://fauna.com/) is a serverless cloud database that gives you low-latency access to your app data around the world.
@@ -34,9 +35,7 @@ This guide walks you through creating a [Next.js app](https://nextjs-faunadb-nod
 To start, you need to have [created a FaunaDB account](https://dashboard.fauna.com/accounts/register). Once logged in to FaunaDB, create a child database named `zeit` _(names are case sensitive)_.
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-nextjs-nodejs-and-faunadb-with-vercel/fauna-create-vercel-db.png`}
+  src={`${process.env.ASSETS}/guides/deploying-nextjs-nodejs-and-faunadb-with-vercel/fauna-create-vercel-db.png`}
   width={2048 / 2.5}
   height={1628 / 2.5}
   oversize
@@ -51,28 +50,29 @@ From here, the easiest way to create a demo schema with some data is to execute 
 Select the **Shell** tab, then copy in [this FQL script](https://raw.githubusercontent.com/danieltodonnell/faunadb-zeit-fql-demo/master/fql-scripts/ecommerce.fql) and click **Run Query**.
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-nextjs-nodejs-and-faunadb-with-vercel/fauna-vercel-db-shell.png`}
+  src={`${process.env.ASSETS}/guides/deploying-nextjs-nodejs-and-faunadb-with-vercel/fauna-vercel-db-shell.png`}
   width={2048 / 2.5}
   height={1536 / 2.5}
   oversize
   shadow
 />
-<Caption>Adding data to a FaunaDB database from the dashboard using an FQL script.</Caption>
+<Caption>
+  Adding data to a FaunaDB database from the dashboard using an FQL script.
+</Caption>
 
 After executing the script, the **Collections** page will present you with dummy data. You are now ready to create a connection to the database.
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-nextjs-nodejs-and-faunadb-with-vercel/fauna-vercel-db-collections.png`}
+  src={`${process.env.ASSETS}/guides/deploying-nextjs-nodejs-and-faunadb-with-vercel/fauna-vercel-db-collections.png`}
   width={2048 / 2.5}
   height={1536 / 2.5}
   oversize
   shadow
 />
-<Caption>The Collections page on the FaunaDB dashboard after adding data to the database.</Caption>
+<Caption>
+  The Collections page on the FaunaDB dashboard after adding data to the
+  database.
+</Caption>
 
 ## Step 2: Create an Access Key
 
@@ -93,7 +93,11 @@ On the **Keys** page, you will receive a unique hash called a **Secret**. The **
 
 Create a [Secret](/docs/cli#commands/secrets) to store the access key received, this will be used later when accessing the database.
 
-<Snippet dark text="vercel secrets add FAUNADB_SECRET_KEY [your-access-key]" />
+<Snippet
+  width="100%"
+  dark
+  text="vercel secrets add FAUNADB_SECRET_KEY [your-access-key]"
+/>
 <Caption>
   Adding the access key as a <strong>Secret</strong>.
 </Caption>
@@ -102,23 +106,34 @@ Create a [Secret](/docs/cli#commands/secrets) to store the access key received, 
 
 Get started creating your [Next.js](https://nextjs.org) by making a project directory with the required structure and moving into it:
 
-<Snippet dark text="mkdir -p faunadb-demo/pages/api && mkdir faunadb-demo/components && cd faunadb-demo" />
+<Snippet
+  width="100%"
+  dark
+  text="mkdir -p faunadb-demo/pages/api && mkdir faunadb-demo/components && cd faunadb-demo"
+/>
 <Caption>
-  Creating and entering into the <InlineCode>/faunadb-demo</InlineCode>{' '}directory.
+  Creating and entering into the <InlineCode>/faunadb-demo</InlineCode>{' '}
+  directory.
 </Caption>
 
 Next, [initialize](https://docs.npmjs.com/cli/init) the project:
 
-<Snippet dark text="npm init -y" />
+<Snippet width="100%" dark text="npm init -y" />
 <Caption>
-  Initializing the project, this creates a <InlineCode>package.json</InlineCode>{' '}file.
+  Initializing the project, this creates a <InlineCode>package.json</InlineCode>{' '}
+  file.
 </Caption>
 
 Continue to install [the FaunaDB JavaScript client](https://github.com/fauna/faunadb-js) which allows you to connect to, and query, the database, along with the required dependencies for Next.js:
 
-<Snippet dark text="npm i faunadb next react react-dom" />
+<Snippet width="100%" dark text="npm i faunadb next react react-dom" />
 <Caption>
-  Adding the <InlineCode>faunadb</InlineCode>, <InlineCode>next</InlineCode>, <InlineCode>react</InlineCode> and <InlineCode>react-dom</InlineCode> <Link href="https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file">dependencies</Link> to the project.
+  Adding the <InlineCode>faunadb</InlineCode>, <InlineCode>next</InlineCode>,{' '}
+  <InlineCode>react</InlineCode> and <InlineCode>react-dom</InlineCode>{' '}
+  <Link href="https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file">
+    dependencies
+  </Link>{' '}
+  to the project.
 </Caption>
 
 Inside of the `/pages` directory, create an `index.js` file with the code below:
@@ -154,7 +169,7 @@ export default () => {
             <h4 className="credit-card">credit card</h4>
           </div>
           {data.length > 0 ? (
-            data.map(d => (
+            data.map((d) => (
               <TableRow
                 key={d.data.telephone}
                 creditCard={d.data.creditCard.number}
@@ -254,7 +269,7 @@ module.exports = async (req, res) => {
             q.Index('all_customers') // specify source
           )
         ),
-        ref => q.Get(ref) // lookup each result by its reference
+        (ref) => q.Get(ref) // lookup each result by its reference
       )
     )
     // ok
@@ -293,5 +308,5 @@ Create a `vercel.json` at the root of the project directory, this is used to mak
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
 export const config = {
-  amp: 'hybrid'
+  amp: 'hybrid',
 }

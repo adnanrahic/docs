@@ -11,7 +11,7 @@ import OrgName from '~/components/name/org-name'
 export const meta = {
   editUrl:
     'pages/docs/runtimes/runtimes-mdx/official-runtimes/official-runtimes.mdx',
-  lastEdited: '2019-10-22T21:47:59.000Z'
+  lastEdited: '2019-10-22T21:47:59.000Z',
 }
 
 # Official Runtimes
@@ -21,11 +21,11 @@ Runtimes are modules that transform your source code into [Serverless Functions]
 <Note type="warning">
   In most cases, advanced Runtimes usage with configuration is not necessary.
   See{' '}
-  <Link href="/docs/v2/introduction">
+  <Link href="/docs/introduction">
     the <ProductName /> Introduction documentation
   </Link>{' '}
   or the{' '}
-  <Link href="/docs/v2/serverless-functions/introduction">
+  <Link href="/docs/serverless-functions/introduction">
     Serverless Functions documentation
   </Link>{' '}
   for more information.
@@ -120,9 +120,9 @@ The Node.js Runtime supports files ending with `.ts` inside of the `/api` direct
 An example TypeScript file that exports a default Node.js function and takes in [the standard Node.js Request and Response](#official-runtimes/node-js/node-js-request-and-response-objects) objects is as follows:
 
 ```js
-import { NowRequest, NowResponse } from '@now/node'
+import { NowRequest, NowResponse } from '@vercel/node'
 
-export default function(req: NowRequest, res: NowResponse) {
+export default function (req: NowRequest, res: NowResponse) {
   const { name = 'World' } = req.query
   res.send(`Hello ${name}!`)
 }
@@ -130,13 +130,16 @@ export default function(req: NowRequest, res: NowResponse) {
 
 <Caption>
   An example serverless Node.js function written in TypeScript, using types from
-  the <InlineCode>@now/node</InlineCode> module for the helper methods.
+  the <InlineCode>@vercel/node</InlineCode> module for the helper methods.
 </Caption>
 
 The `NowRequest` and `NowResponse` imports in the above example are types that we provide for [the Request and Response objects](#official-runtimes/node-js/node-js-request-and-response-objects), including the helper methods with <ProductName />. These types can be installed from npm with the following command:
 
-<Snippet dark text="npm install @now/node --save-dev" />
-<Caption>Installing <InlineCode>@now/node</InlineCode> for types when using Node.js on <ProductName />.</Caption>
+<Snippet width="100%" dark text="npm install @vercel/node --save-dev" />
+<Caption>
+  Installing <InlineCode>@vercel/node</InlineCode> for types when using Node.js
+  on <ProductName />.
+</Caption>
 
 You can also use a `tsconfig.json` file at the root of your project to configure the TypeScript compiler. Most options are supported aside from ["Path Mappings"](https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping) and ["Project References"](https://www.typescriptlang.org/docs/handbook/project-references.html).
 
@@ -156,6 +159,8 @@ Each request to a Node.js Serverless Function gives access to Request and Respon
 | `res.status(code)`                                                                         | A function to set the status code sent with the response where `code` must be a valid [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes). Returns `res` for chaining. | Response |
 | `res.send(body)`                                                                           | A function to set the content of the response where `body` can be a `string`, an `object` or a `Buffer`.                                                                                       | Response |
 | `res.json(obj)`                                                                            | A function to send a JSON response where `obj` is the JSON object to send.                                                                                                                     | Response |
+| `res.redirect(url)`                                                                        | A function to redirect to the URL derived from the specified path with status code "307 Temporary Redirect".                                                                                   | Response |
+| `res.redirect(statusCode, url)`                                                            | A function to redirect to the URL derived from the specified path, with specified [HTTP status code](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes).                                 | Response |
 
 The following Node.js Serverless Function example showcases the use of `req.query`, `req.cookies` and `req.body` helpers:
 
@@ -380,7 +385,7 @@ Handler = Proc.new do |req, res|
   name = req.query['name'] || 'World'
 
   res.status = 200
-  res['Content-Type'] = 'text/plain'
+  res['Content-Type'] = 'text/text; charset=utf-8'
   res.body = Cowsay.say("Hello #{name}", 'cow')
 end
 ```

@@ -14,6 +14,11 @@ export const meta = {
   published: '2020-04-30T07:47:12.000Z',
   authors: ['stefanoverna'],
   url: '/guides/deploying-next-datocms-with-vercel',
+  env: ['DATOCMS_API_TOKEN'],
+  envDescription: ['The DatoCMS API token, found in the DatoCMS settings tab.'],
+  envLink: [
+    'https://www.datocms.com/docs/content-management-api/authentication',
+  ],
   example: 'https://github.com/vercel/next.js/tree/canary/examples/cms-datocms',
   image:
     'https://og-image.now.sh/**Create%20and%20Deploy%20a%20Blog**%20with%20Next.js%20and%20DatoCMS.png?theme=light&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fvercel-triangle-black.svg&images=https%3A%2F%2Fwww.datocms.com%2Fimages%2Fbrand-assets%2Fsvg%2Ficon-text%2Fcolor%2Fcolor_full_logo.svg',
@@ -21,7 +26,8 @@ export const meta = {
   name: 'Next.js + DatoCMS',
   type: 'site',
   demo: 'https://next-blog-datocms.now.sh/',
-  lastEdited: '2020-06-04T20:10:32.000Z'
+  lastEdited: '2020-07-22T10:57:02.000Z',
+  rank: 12,
 }
 
 This guide walks you through creating a blog using Next.js' [Static Generation](https://nextjs.org/docs/basic-features/pages) feature and [DatoCMS](https://www.datocms.com/) through the [DatoCMS GraphQL API](https://www.datocms.com/) and deploying the project with [Vercel](/).
@@ -40,15 +46,15 @@ Two of the biggest selling points for DatoCMS are:
 - **Out-of-the-box support to responsive, progressive, lazy-loaded images** thanks to the fact that its GraphQL API already exposes [pre-computed low-quality image placeholders](https://www.datocms.com/blog/offer-responsive-progressive-lqip-images-in-2020) (LQIP, or blur-up placeholders), allowing webpages to get everything they need in a single request, avoiding content reflows.
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-next-datocms-with-vercel/preview.mp4`}
+  src={`${process.env.ASSETS}/guides/deploying-next-datocms-with-vercel/preview.mp4`}
   width={1440 / 1.5}
   height={900 / 1.5}
   oversize
   video
 />
-<Caption>Preview of the website, complete with blur-up image placeholders.</Caption>
+<Caption>
+  Preview of the website, complete with blur-up image placeholders.
+</Caption>
 
 Follow this guide to create a starting point for you to get your own blog up and running.
 
@@ -66,9 +72,7 @@ Next, add these fields (you don't have to modify the settings):
 - **Picture**: field of type **Single asset** (under the _Media_ group)
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-next-datocms-with-vercel/create-model.mp4`}
+  src={`${process.env.ASSETS}/guides/deploying-next-datocms-with-vercel/create-model.mp4`}
   width={1440 / 1.5}
   height={900 / 1.5}
   oversize
@@ -109,9 +113,7 @@ Next, add these fields (you don't have to modify the settings unless specified):
 From the **Content** menu at the top, select **Author** and then create a new record. In this case, you can use dummy data for the text and download an image from [Unsplash](https://unsplash.com/).
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-next-datocms-with-vercel/create-content.mp4`}
+  src={`${process.env.ASSETS}/guides/deploying-next-datocms-with-vercel/create-content.mp4`}
   width={1440 / 1.5}
   height={900 / 1.5}
   oversize
@@ -138,19 +140,19 @@ Click the **Settings** tab, and choose the **API tokens** option, then click on 
 
 <Note>
   Make sure you only give the permissions to access the (read-only) Content
-  Delivery API!
+  Delivery API.
 </Note>
 
 <Image
-  src={`${
-    process.env.ASSETS
-  }/guides/deploying-next-datocms-with-vercel/create-api-token.mp4`}
+  src={`${process.env.ASSETS}/guides/deploying-next-datocms-with-vercel/create-api-token.mp4`}
   width={1440 / 1.5}
   height={900 / 1.5}
   oversize
   video
 />
-<Caption>Follow these steps to create a read-only API Token for DatoCMS GraphQL API.</Caption>
+<Caption>
+  Follow these steps to create a read-only API Token for DatoCMS GraphQL API.
+</Caption>
 
 Make a note of the newly created access token, as it will be used later on.
 
@@ -160,7 +162,7 @@ That's all the setup required for [DatoCMS](https://www.datocms.com/)! Within on
 
 To display your new blog and content, create a new [Next.js](https://nextjs.org/) application using [create-next-app](https://create-react-app.dev/), then run the following command and follow the wizard:
 
-<Snippet dark text="npm init next-app my-datocms-project" />
+<Snippet width="100%" dark text="npm init next-app my-datocms-project" />
 <Caption>Bootstrap a Next.js application from your command line.</Caption>
 
 Enter inside the project directory, install the [graphql-request](https://github.com/prisma-labs/graphql-request) and [react-datocms](https://github.com/datocms/react-datocms) package, and start the development server:
@@ -169,7 +171,10 @@ Enter inside the project directory, install the [graphql-request](https://github
   dark
   text="cd my-datocms-project && yarn add graphql-request react-datocms && yarn dev"
 />
-<Caption>Moving to your project, installing dependencies, and starting a local development server from the command line.</Caption>
+<Caption>
+  Moving to your project, installing dependencies, and starting a local
+  development server from the command line.
+</Caption>
 
 You'll need to setup a GraphQL client pointing to the API of your DatoCMS project. Create a new `lib` directory for that, and inside of it create a file called `datocms.js`:
 
@@ -183,8 +188,8 @@ export function request({ query, variables, preview }) {
 
   const client = new GraphQLClient(endpoint, {
     headers: {
-      authorization: `Bearer ${process.env.NEXT_DATOCMS_API_TOKEN}`
-    }
+      authorization: `Bearer ${process.env.DATOCMS_API_TOKEN}`,
+    },
   })
   return client.request(query, variables)
 }
@@ -195,15 +200,22 @@ export function request({ query, variables, preview }) {
   from DatoCMS.
 </Caption>
 
-Using an environment variable starting with `NEXT_` means that it will be automatically read by Next.js. Then, you can set the environment variable inside a `.env` file:
+Then, you can set the environment variable inside a `.env.local` file:
 
-<Snippet dark text="echo 'NEXT_DATOCMS_API_TOKEN=YOUR-API-TOKEN' >> .env" />
-<Caption>Creating an environment variable in a <InlineCode>.env</InlineCode> file for your API token.</Caption>
+<Snippet
+  width="100%"
+  dark
+  text="echo 'DATOCMS_API_TOKEN=YOUR-API-TOKEN' >> .env.local"
+/>
+<Caption>
+  Creating an environment variable in a <InlineCode>.env.local</InlineCode> file
+  for your API token.
+</Caption>
 
-Make sure that Git will ignore it by adding it to `.gitignore`:
-
-<Snippet dark text="echo '.env' >> .gitignore" />
-<Caption>Adding <InlineCode>.env</InlineCode> to the <InlineCode>.gitignore</InlineCode> file to avoid publishing to Git.</Caption>
+<Note>
+  You will need to set this environment variable when importing the project into
+  Vercel as well.
+</Note>
 
 Next, go to `pages/index.js` — that is, the component that renders the homepage of the project — and replace its contents the following code:
 
@@ -256,13 +268,13 @@ query HomePage($limit: IntType) {
 export async function getStaticProps() {
   const data = await request({
     query: HOMEPAGE_QUERY,
-    variables: { limit: 10 }
+    variables: { limit: 10 },
   })
 
   return {
     props: {
-      data
-    }
+      data,
+    },
   }
 }
 
@@ -270,7 +282,7 @@ export default function Home({ data }) {
   return (
     <div>
       <Head>{renderMetaTags(data.blog.seo.concat(data.site.favicon))}</Head>
-      {data.allPosts.map(blogPost => (
+      {data.allPosts.map((blogPost) => (
         <article key={blogPost.id}>
           <Image data={blogPost.coverImage.responsiveImage} />
           <h6>{blogPost.title}</h6>
@@ -344,11 +356,11 @@ export async function getStaticProps(context) {
   const data = await request({
     query: HOMEPAGE_QUERY,
     variables: { limit: 10 },
-    preview: context.preview
+    preview: context.preview,
   })
 
   return {
-    props: { data }
+    props: { data },
   }
 }
 ```
@@ -373,30 +385,6 @@ export async function getStaticProps(context) {
 
 ## Step 4: Deploy
 
-Before deploying, make the DatoCMS API token available for your deployment, first add a `vercel.json` file at the root of your project directory with the following contents:
-
-```json
-{
-  "build": {
-    "env": {
-      "NEXT_DATOCMS_API_TOKEN": "@datocms_api_token"
-    }
-  }
-}
-```
-
-<Caption>
-  An example <InlineCode>vercel.json</InlineCode> file for your Next.js +
-  DatoCMS project.
-</Caption>
-
-Next, create a [Secret](/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets) using the [Vercel CLI](https://vercel.com/download) with the command below:
-
-<Snippet dark text="vercel secrets add datocms_api_token YOUR-API-TOKEN" />
-<Caption>
-  Adding the <InlineCode>datocms_api_token</InlineCode> secret to your Vercel account using <Link href="/docs/v2/deployments/environment-variables-and-secrets#securing-environment-variables-using-secrets">Secrets</Link>.
-</Caption>
-
 For a complete look at what you will deploy, see [the example GitHub repository](https://github.com/vercel/next.js/tree/master/examples/cms-datocms).
 
 <DeploySection meta={meta} />
@@ -404,5 +392,5 @@ For a complete look at what you will deploy, see [the example GitHub repository]
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
 export const config = {
-  amp: 'hybrid'
+  amp: 'hybrid',
 }

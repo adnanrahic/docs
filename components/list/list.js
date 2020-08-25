@@ -35,19 +35,21 @@ export default function List({
   columnsTablet = 1,
   columnsMobile = 1,
   halfGap = false,
-  children
+  children,
 }) {
   // need to wrap each child with a `<Item>`
   return (
     <div className="geist-list">
-      {React.Children.map(children, child => (
-        <Item
-          halfGap={halfGap}
-          columns={[+columnsDesktop, +columnsTablet, +columnsMobile]}
-        >
-          {child}
-        </Item>
-      ))}
+      {React.Children.map(children, (child) =>
+        child ? (
+          <Item
+            halfGap={halfGap}
+            columns={[+columnsDesktop, +columnsTablet, +columnsMobile]}
+          >
+            {child}
+          </Item>
+        ) : undefined
+      )}
       <style jsx>{`
         .geist-list {
           display: flex;

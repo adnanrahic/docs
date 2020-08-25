@@ -7,7 +7,7 @@ import ProductName from '~/components/name/product-name'
 import OrgName from '~/components/name/org-name'
 
 export const meta = {
-  lastEdited: '2019-10-22T21:47:59.000Z'
+  lastEdited: '2019-10-22T21:47:59.000Z',
 }
 
 ## Remove
@@ -22,16 +22,29 @@ The `vercel remove` command, which can be shortened to `vercel rm`, is used to r
 
 ### Basic Usage
 
-<Snippet dark text="vercel remove [deployment-url]" />
-<Caption>Using the <InlineCode>vercel remove</InlineCode> command to remove a deployment from the <ProductName /> platform.</Caption>
+<Snippet width="100%" dark text="vercel remove [deployment-url]" />
+<Caption>
+  Using the <InlineCode>vercel remove</InlineCode> command to remove a
+  deployment from the <ProductName /> platform.
+</Caption>
 
 ### Extended Usage
 
-<Snippet dark text="vercel remove [deployment-url-1 deployment-url-2]" />
-<Caption>Using the <InlineCode>vercel remove</InlineCode> command to remove multiple deployments from the <ProductName /> platform.</Caption>
+<Snippet
+  width="100%"
+  dark
+  text="vercel remove [deployment-url-1 deployment-url-2]"
+/>
+<Caption>
+  Using the <InlineCode>vercel remove</InlineCode> command to remove multiple
+  deployments from the <ProductName /> platform.
+</Caption>
 
-<Snippet dark text="vercel remove [project-name]" />
-<Caption>Using the <InlineCode>vercel remove</InlineCode> command to remove all deployments for a project from the <ProductName /> platform.</Caption>
+<Snippet width="100%" dark text="vercel remove [project-name]" />
+<Caption>
+  Using the <InlineCode>vercel remove</InlineCode> command to remove all
+  deployments for a project from the <ProductName /> platform.
+</Caption>
 
 <Note type="warning">
   By using the <Link href="/docs/v2/platform/projects/">project name</Link>, the
@@ -62,8 +75,11 @@ The `--safe` option, shorthand `-s`, can be used to skip the removal of deployme
 
 ##### Usage Example
 
-<Snippet dark text="vercel remove my-project --safe" />
-<Caption>Using the <InlineCode>vercel remove</InlineCode> command with the <InlineCode>--safe</InlineCode> option.</Caption>
+<Snippet width="100%" dark text="vercel remove my-project --safe" />
+<Caption>
+  Using the <InlineCode>vercel remove</InlineCode> command with the{' '}
+  <InlineCode>--safe</InlineCode> option.
+</Caption>
 
 #### Yes
 
@@ -71,5 +87,8 @@ The `--yes` option, shorthand `-y`, can be used to skip the confirmation step fo
 
 ##### Usage Example
 
-<Snippet dark text="vercel remove my-deployment.com --yes" />
-<Caption>Using the <InlineCode>vercel remove</InlineCode> command with the <InlineCode>--yes</InlineCode> option.</Caption>
+<Snippet width="100%" dark text="vercel remove my-deployment.com --yes" />
+<Caption>
+  Using the <InlineCode>vercel remove</InlineCode> command with the{' '}
+  <InlineCode>--yes</InlineCode> option.
+</Caption>

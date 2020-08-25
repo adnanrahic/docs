@@ -16,7 +16,8 @@ export const meta = {
   authors: ['mcsdev'],
   url: '/guides/handling-node-request-body',
   editUrl: 'pages/guides/handling-node-request-body.mdx',
-  lastEdited: '2020-05-08T23:58:00.000Z'
+  lastEdited: '2020-07-17T05:49:23.000Z',
+  rank: 13,
 }
 
 In this guide, we will show you how to parse a [Node.js request body](https://nodejs.org/en/docs/guides/anatomy-of-an-http-transaction/), for use inside a [Serverless Function](/docs/v2/serverless-functions/introduction/) deployed to [<ProductName />](/), without requiring a framework such as Express.
@@ -27,18 +28,23 @@ This guide assumes the request is sent with a [`Content-Type`](https://developer
 
 To get started, create a project directory with an `/api` directory inside and `cd` into it:
 
-<Snippet dark text="mkdir req-body && mkdir req-body/api" />
-<Caption>Creating an <InlineCode>/api</InlineCode> directory inside of a <InlineCode>/req-body</InlineCode> project.</Caption>
+<Snippet width="100%" dark text="mkdir req-body && mkdir req-body/api" />
+<Caption>
+  Creating an <InlineCode>/api</InlineCode> directory inside of a{' '}
+  <InlineCode>/req-body</InlineCode> project.
+</Caption>
 
-<Snippet dark text="cd req-body" />
-<Caption>Moving into the <InlineCode>/req-body</InlineCode> project directory.</Caption>
+<Snippet width="100%" dark text="cd req-body" />
+<Caption>
+  Moving into the <InlineCode>/req-body</InlineCode> project directory.
+</Caption>
 
 To illustrate the parsing of a request body, create an `index.js` file inside your `/api` directory with the following code:
 
 ```js
 module.exports = async (req, res) => {
   const { body } = req
-  res.end(`Hello ${body.name}, you just parsed the request body!`)
+  res.send(`Hello ${body.name}, you just parsed the request body!`)
 }
 ```
 
@@ -74,7 +80,7 @@ With the `req.body` helper, the incoming `request` is parsed automatically, remo
 
 Deploying your function to [<ProductName />](/) can be done with **a single command**:
 
-<Snippet dark text="vercel" />
+<Snippet width="100%" dark text="vercel" />
 <Caption>
   Deploying the app with the <InlineCode>vercel</InlineCode> command.
 </Caption>
@@ -89,14 +95,14 @@ To verify that the JSON is being parsed correctly, make a POST request to your n
   method="POST"
   url="https://your-deployments-url.now.sh/api"
   headers={{
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
   }}
   body={{
-    name: 'Reader'
+    name: 'Reader',
   }}
 />
 <Caption>
-    Making a POST request using <Link href="https://curl.haxx.se/">curl</Link>.
+  Making a POST request using <Link href="https://curl.haxx.se/">curl</Link>.
 </Caption>
 
 <Note>
@@ -107,9 +113,7 @@ To verify that the JSON is being parsed correctly, make a POST request to your n
 You will receive a response similar to the following:
 
 <Code>Hello Reader, you just parsed the request body!</Code>
-<Caption>
-    An example response from making a POST request.
-</Caption>
+<Caption>An example response from making a POST request.</Caption>
 
 Congratulations, now you know how to parse request bodies with [<ProductName />](/) in Node.js!
 
@@ -124,5 +128,5 @@ By using [helper properties](/docs/runtimes#official-runtimes/node-js/node-js-re
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
 export const config = {
-  amp: 'hybrid'
+  amp: 'hybrid',
 }

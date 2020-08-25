@@ -5,19 +5,21 @@ import OrgName from '~/components/name/org-name'
 export const meta = {
   editUrl:
     'pages/docs/integrations/integrations-docs-mdx/examples/recent-deployments.mdx',
-  lastEdited: '2019-10-15T22:03:42.000Z'
+  lastEdited: '2019-10-15T22:03:42.000Z',
 }
 
 ## Recent Deployments
 
 This Integration displays a list of recent deployments from your <OrgName /> account or related project.
-It fetches deployment data from the <OrgName /> API using the `zeitClient` utility.
+It fetches deployment data from the <OrgName /> API using the `vercelClient` utility.
 
 Take a look at the [code on GitHub](https://github.com/vercel/integrations/tree/master/recent-deployments).
 
 <Image
   src={`${process.env.ASSETS}/docs/integrations/examples/recent-deployments.png`}
-  width={1792/2}
-  height={998/2}
+  width={1792 / 2}
+  height={998 / 2}
 />
-<Caption>An example Integration accessing the <OrgName /> API and render them.</Caption>
+<Caption>
+  An example Integration accessing the <OrgName /> API and render them.
+</Caption>

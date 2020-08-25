@@ -7,7 +7,7 @@ import IconAnchor from '~/components/icons/link'
 import IconExternal from '~/components/icons/external-link'
 import CircledQuestion from '~/components/icons/circled-question'
 
-const External = props => {
+const External = (props) => {
   const {
     href,
     icon,
@@ -54,13 +54,17 @@ const External = props => {
             margin: 0 5px;
             display: inline-flex;
           }
+
+          a :global(> code) {
+            color: ${color ? 'var(--geist-link-color)' : 'inherit'};
+          }
         `}
       </style>
     </a>
   )
 }
 
-const Internal = props => {
+const Internal = (props) => {
   const {
     as,
     href,
@@ -91,6 +95,9 @@ const Internal = props => {
           a:hover {
             text-decoration: ${underline ? 'underline' : 'none'};
           }
+          a :global(> code) {
+            color: ${color ? 'var(--geist-link-color)' : 'inherit'};
+          }
         `}
       </style>
     </a>
@@ -111,7 +118,7 @@ const Internal = props => {
   )
 }
 
-const Anchor = props => {
+const Anchor = (props) => {
   const {
     as,
     href,
@@ -159,6 +166,10 @@ const Anchor = props => {
               transform: translateX(-200%);
               display: inline-flex;
             }
+
+            a :global(> code) {
+              color: ${color ? 'var(--geist-link-color)' : 'inherit'};
+            }
           `}
         </style>
       </a>
@@ -166,7 +177,7 @@ const Anchor = props => {
   )
 }
 
-const Link = props => {
+const Link = (props) => {
   const { external = false, anchor = false, ...restProps } = props
 
   // We use restProps.href instead of destructuring href
@@ -205,7 +216,7 @@ Link.propTypes = {
   color: PropTypes.bool,
   underline: PropTypes.bool,
   children: PropTypes.any,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 }
 
 export const HelpLink = ({ children, href, hasIcon, ...props }) => (
