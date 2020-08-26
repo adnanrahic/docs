@@ -17,12 +17,14 @@ export const meta = {
   image: `https://og-image.now.sh/**Debugging%20and%20Troubleshooting%20**%20${PRODUCT_NAME}%20Logs%20with%20Sematext.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fzeit.co%2Fdocs%2Fstatic%2Fguides%2Fclient-side-performance-monitoring-with-sematext-and-vercel%2Fdebubear-logo.png`,
   editUrl:
     'pages/guides/client-side-performance-monitoring-with-sematext-and-vercel.mdx',
-  lastEdited: '2020-08-25T16:08:21.000Z',
+  lastEdited: '2020-08-26T09:39:37.000Z',
 }
 
 [Sematext](https://sematext.com/) is a full-stack observability tool that helps developers keep track of logs, metrics, infrastructure, and website performance.
 
-This guide walks you through setting up client-side user-experience monitoring for your <OrgName /> deployments. Once you add the script in the head tag, it will automatically send metrics to Sematext where you can debug and troubleshoot performance issues and end-user satisfaction with Web Vitals, Apdex scores, Waterfall charts showing slow-loading resources, pages and HTTPS requests, and much more.
+This guide walks you through setting up client-side user experience monitoring for your <OrgName /> deployments. Once you add the script in the `<head>` tag of your website/front-end app, it will automatically send metrics to Sematext.
+
+You'll be able to debug and troubleshoot performance issues and end-user satisfaction with Web Vitals, Apdex scores, Waterfall charts showing slow-loading resources, pages, HTTP requests, and much more.
 
 ## Step 1: Import and Deploy with <NameWrapper name={PRODUCT_NAME} />
 
@@ -81,78 +83,47 @@ If you do not have a Sematext account already, click **Start Free Trial** on Sem
 />
 <Caption>Set up a Sematext Account.</Caption>
 
-## Step 4: Create a Logs App
+## Step 4: Create an Experience App
 
-When logged in to Sematext, select **Start Shipping Logs**. This will set up a Logs App that acts as container for your data.
+When logged in to Sematext, select **Start User Experience Monitoring**. This will set up an Experience App that acts as container for your data.
 
 <Image
-  src={`${process.env.ASSETS}/guides/client-side-performance-monitoring-with-sematext-and-vercel/step-4-start-shipping-logs.png`}
+  src={`${process.env.ASSETS}/guides/client-side-performance-monitoring-with-sematext-and-vercel/step-4-start-user-experience-monitoring.png`}
   width={1280 / 2}
   height={832 / 2}
   oversize
   shadow
 />
-<Caption>Create a Logs App.</Caption>
+<Caption>Create an Experience App.</Caption>
 
-The Logs App will show you a **token** you need to add to the Sematext Logs <NameWrapper name={ORG_NAME} /> Integration.
+The Experience App will show you a **script** you need to add to the `<head>` section of your website/front-end app.
 
 <Image
-  src={`${process.env.ASSETS}/guides/client-side-performance-monitoring-with-sematext-and-vercel/step-4-save-token.png`}
+  src={`${process.env.ASSETS}/guides/client-side-performance-monitoring-with-sematext-and-vercel/step-4-install-script.png`}
   width={1280 / 2}
   height={800 / 2}
   oversize
   shadow
 />
-<Caption>Save the token somewhere safe.</Caption>
+<Caption>Add the script to your website/front-end app.</Caption>
 
-## Step 5: Create a Sematext Log Drain
+<Note>It may take a few seconds for metrics to come in.</Note>
 
-Open your [Sematext Logs integration](/integrations/sematext-log-drain), select the region in which you created your Sematext Account, and add the token from Step 4. Finally, save the log drain.
-
-<Image
-  src={`${process.env.ASSETS}/guides/client-side-performance-monitoring-with-sematext-and-vercel/step-5-create-log-drain.png`}
-  width={1249 / 2}
-  height={1372 / 2}
-  oversize
-  shadow
-/>
-<Caption>Set up the Sematext Log Drain.</Caption>
-
-<Note>It may take a few seconds for logs to come in.</Note>
-
-By default, you get a set of reports out of the box, with default alert rules to notify you for common errors and timeouts.
+By default, you get a set of reports out of the box, with default alert rules to notify you for common errors and performance issues.
 
 <Image
-  src={`${process.env.ASSETS}/guides/client-side-performance-monitoring-with-sematext-and-vercel/step-5-logs-reports.png`}
+  src={`${process.env.ASSETS}/guides/client-side-performance-monitoring-with-sematext-and-vercel/step-4-overview.png`}
   width={1280 / 2}
   height={800 / 2}
   oversize
   shadow
 />
-<Caption>Sematext Logs reports showing logs data.</Caption>
 
-These include structured formats for Lambda functions, including errors, timeouts, and cold starts.
-
-## Step 6: Forwarding <NameWrapper name={ORG_NAME} /> Logs to Multiple Sematext Logs Apps (Optional)
-
-When configuring the Sematext Logs <NameWrapper name={ORG_NAME} /> Integration you can configure whether to collect logs from all projects or just a few. With this integration you can configure multiple log drains that point to multiple destinations. This means you can specify which project will send logs to which Sematext Logs App.
-
-To configure multiple log drains, create multiple Logs Apps in Sematext and multiple Log Drains in the Sematext Logs <NameWrapper name={ORG_NAME} /> Integration.
-
-Once added, you'll see an overview of all the Log Drains you have configured.
-
-<Image
-  src={`${process.env.ASSETS}/guides/client-side-performance-monitoring-with-sematext-and-vercel/step-6-multiple-log-drains.png`}
-  width={1249 / 2}
-  height={746 / 2}
-  oversize
-  shadow
-/>
-<Caption>Multiple Log Drains.</Caption>
+These include structured formats for website performance metrics include web vitals, Apdex, page loads, HTTP requests, resource load times, and much more.
 
 ## Conclusion
 
-This guide shows how to set up a Sematext Log Drain for your <OrgName /> deployments. The log drain will automatically send logs to Sematext where you can debug and troubleshoot issues with full-text search, filtering, tagging, and custom charts for your <OrgName /> logs.
+This guide shows how to set up Sematext Experience for your <OrgName /> deployments. Experience will automatically send user experience metrics to Sematext where you can debug and troubleshoot issues by filtering, grouping, and tagging metrics from page loads, HTTP requests, web vitals, and resources, while displaying them on custom charts.
 
 export default ({ children }) => <Guide meta={meta}>{children}</Guide>
 
