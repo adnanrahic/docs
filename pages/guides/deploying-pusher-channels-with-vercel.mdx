@@ -20,10 +20,13 @@ export const meta = {
   url: '/guides/deploying-pusher-channels-with-vercel',
   image: `https://og-image.now.sh/**Deploy%20Pusher%20Channels%20Apps**%20with%20${PRODUCT_NAME}.png?theme=light&md=1&fontSize=96px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fzeit-black-triangle.svg&images=https%3A%2F%2Fpusher-icon.now-examples.now.sh&widths=250&widths=300&heights=250&heights=250`,
   editUrl: 'pages/guides/deploying-pusher-channels-with-vercel.mdx',
+<<<<<<< HEAD
   lastEdited: '2020-07-17T05:49:23.000Z',
+=======
+  lastEdited: '2020-09-01T02:35:38.000Z',
+>>>>>>> upstream/master
   rank: 23,
 }
-
 [Pusher Channels](https://pusher.com/channels) is a service that makes it easy to add real-time data and functionality to web and mobile apps by using [WebSockets](https://en.wikipedia.org/wiki/WebSocket).
 
 This guide demonstrates how to get started creating and deploying real-time apps with [Channels](https://pusher.com/channels) and [<ProductName />](/).
@@ -218,7 +221,7 @@ Add the dependencies for the Serverless Function from inside the `/api` director
   <InlineCode>pusher</InlineCode> dependency.
 </Caption>
 
-Create a `channels-event.js` file inside the `/api` directory that initializes a new Channels object and receives data from the [`req.body` helper method](/docs/v2/serverless-functions/supported-languages/#node.js-request-and-response-objects), before invoking [`channels.trigger`](https://github.com/pusher/pusher-http-node#publishing-events) to register the event.
+Create a `channels-event.js` file inside the `/api` directory that initializes a new Channels object and receives data from the [`req.body` helper method](/docs/runtimes#official-runtimes/node-js/node-js-request-and-response-objects), before invoking [`channels.trigger`](https://github.com/pusher/pusher-http-node#publishing-events) to register the event.
 
 ```js
 const Channels = require('pusher')
